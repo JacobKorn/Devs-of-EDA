@@ -13,9 +13,9 @@ RSpec.describe Board do
 				board = Board.new
 				board.create_board
 				expect([
-					board.row?(board.tiles[0]),
-					board.row?(board.tiles[1]),
-					board.row?(board.tiles[2])]
+					board.tiles[0].row?,
+					board.tiles[1].row?,
+					board.tiles[2].row?]
 					).to eq([0,0,0])
 			end
 
@@ -23,10 +23,10 @@ RSpec.describe Board do
 				board = Board.new
 				board.create_board
 				expect([
-					board.row?(board.tiles[3]),
-					board.row?(board.tiles[4]),
-					board.row?(board.tiles[5]),
-					board.row?(board.tiles[6])]
+					board.tiles[3].row?,
+					board.tiles[4].row?,
+					board.tiles[5].row?,
+					board.tiles[6].row?]
 					).to eq([1,1,1,1])
 			end
 
@@ -34,11 +34,11 @@ RSpec.describe Board do
 				board = Board.new
 				board.create_board
 				expect([
-					board.row?(board.tiles[7]),
-					board.row?(board.tiles[8]),
-					board.row?(board.tiles[9]),
-					board.row?(board.tiles[10]),
-					board.row?(board.tiles[11])]
+					board.tiles[7].row?,
+					board.tiles[8].row?,
+					board.tiles[9].row?,
+					board.tiles[10].row?,
+					board.tiles[11].row?]
 					).to eq([2,2,2,2,2])
 			end
 
@@ -46,10 +46,10 @@ RSpec.describe Board do
 				board = Board.new
 				board.create_board
 				expect([
-					board.row?(board.tiles[12]),
-					board.row?(board.tiles[13]),
-					board.row?(board.tiles[14]),
-					board.row?(board.tiles[15])]
+					board.tiles[12].row?,
+					board.tiles[13].row?,
+					board.tiles[14].row?,
+					board.tiles[15].row?]
 					).to eq([3,3,3,3])
 			end
 
@@ -57,9 +57,9 @@ RSpec.describe Board do
 				board = Board.new
 				board.create_board
 				expect([
-					board.row?(board.tiles[16]),
-					board.row?(board.tiles[17]),
-					board.row?(board.tiles[18])]
+					board.tiles[16].row?,
+					board.tiles[17].row?,
+					board.tiles[18].row?]
 					).to eq([4,4,4])
 			end
 		end
