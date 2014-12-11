@@ -1,5 +1,7 @@
 class Tile < ActiveRecord::Base
 
+	belongs_to :board
+
 	has_many :neighbours #, foreign_key: "tile_two" #, inverse_of: :tile_one
 	# has_many :tile_twos, through: :neighbours, source: :tile_two
 

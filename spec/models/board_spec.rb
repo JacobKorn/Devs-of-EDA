@@ -10,7 +10,7 @@ RSpec.describe Board do
 
 		describe "returning tile's row" do
 			it "first row returns correctly" do
-				board = Board.new
+				board = Board.create
 				board.create_board
 				expect([
 					board.tiles[0].row?,
