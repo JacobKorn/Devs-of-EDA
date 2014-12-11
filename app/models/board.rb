@@ -1,6 +1,7 @@
 class Board	< ActiveRecord::Base
 	# attr_accessor :tiles
-
+	NEW_LINES = [3, 7, 12, 16, 19]
+	
 	has_many :tiles
 	
 

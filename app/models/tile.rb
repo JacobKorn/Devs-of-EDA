@@ -9,7 +9,7 @@ class Tile < ActiveRecord::Base
 	# has_many :tile_ones, through: :neighbours, source: :tile_two
 
 
-	NEW_LINES = [3, 7, 12, 16, 19]
+	
 
 	def neighbours
 		neighbour_groups = Neighbour.where(tile_one_id: self.id) + Neighbour.where(tile_two_id: self.id)
@@ -23,7 +23,7 @@ class Tile < ActiveRecord::Base
 
 	def row?
 		row = nil
-		NEW_LINES.each_with_index do |number, index|
+		self.board.class::NEW_LINES.each_with_index do |number, index|
 			last_number = 0 unless last_number
 			if self.number < number && self.number >= last_number
 				row = index
