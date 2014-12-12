@@ -1,21 +1,32 @@
 class Board	< ActiveRecord::Base
-	# attr_accessor :tiles
-	NEW_LINES = [3, 7, 12, 16, 19]
-	
+
+	TILE_COORDS = {
+		-2 => [  0,  1, 2 ],
+		-1 => [ -1,  0, 1, 2],
+		 0 => [ -2, -1, 0, 1, 2 ],
+		 1 => [ -2, -1, 0, 1 ],
+		 2 => [ -2, -1, 0]
+	}
+
+
 	has_many :tiles
 	
-
-	def create_board
-		19.times do |number|
-			tiles << Tile.create(number: number, board_id: self.id)
+	def populate
+		TILE_COORDS.each do |x, y_group|
+			y_group.each do |y|
+				tiles << Tile.create(x: x, y: y)
+			end
 		end
 	end
 
-	def set_neighbours
-		tiles.each do |tile|
-			
-		end
-	end
+
+	# def populate_paths
+	# 	tiles.each do |tile|
+	# 		unless tile.right_neighbour == nil
+	# 			Path.create(tile_one: , tile_two: )
+	# 		end
+	# 	end
+	# end
 
 
 	
