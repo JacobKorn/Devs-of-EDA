@@ -1,18 +1,18 @@
 class BoardController < ApplicationController
 
-respond_to :json
+	respond_to :json
 
-def create
-	@board = Board.create
-	@board.populate
+	def create
+		@board = Board.create
+		@board.populate
 
-	respond_to do |format|
-		format.json { render json: @board }
-	end 
-end
+		respond_to do |format|
+			format.json { render json: @board }
+		end 
+	end
 
-def show
-	
-end
+	def show
+		@board = Board.find(params)
+	end
 
 end
