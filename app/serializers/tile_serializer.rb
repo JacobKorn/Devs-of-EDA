@@ -1,5 +1,5 @@
 class TileSerializer < ActiveModel::Serializer
-  attributes :id, :board_id, :x, :y #, :right_neighbour
+  attributes :id, :board_id, :serverX, :serverY #, :right_neighbour
 
   # def right_neighbour
   # 	right_neighbour = object.right_neighbour
@@ -9,6 +9,14 @@ class TileSerializer < ActiveModel::Serializer
   # 		{ x: nil, y: nil }
   # 	end
   # end
-  # attribute :x, :key => :serverX
+  # attribute :x, key: :serverX
+
+  def serverX
+    object.x
+  end
+  def serverY
+    object.y
+  end
+
   # belongs_to :board
 end
