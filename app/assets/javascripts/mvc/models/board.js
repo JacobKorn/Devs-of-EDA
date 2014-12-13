@@ -4,9 +4,18 @@ var Board = function(){
 };
 
 Board.prototype = {
-	getServerTiles: function(){
-		//this will be an AJAX call
+	saveTiles: function(data) {
 		this.serverTiles = data.board.tiles
+	},
+	getServerTiles: function(){
+		$.ajax( {
+			type: "POST",
+			url: "/board.json",
+			success: this.saveTiles(data),
+			fail: function(error) {
+				console.log("failed ajax request", error)
+			}
+		})
 	},
 	makeHexagon: function(x, y){
 		var c = 90;
@@ -63,6 +72,7 @@ Board.prototype = {
 	},
 	makeHexagons: function(){
 		var thisBoard = this
+		console.log(this)
 		this.serverTiles.forEach(function(tile) {
 			thisBoard.hexagons.push(thisBoard.makeCanvasHexagon(tile.serverX, tile.serverY))
 		})

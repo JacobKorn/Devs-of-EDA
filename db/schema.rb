@@ -19,15 +19,6 @@ ActiveRecord::Schema.define(version: 20141211225255) do
   create_table "boards", force: true do |t|
   end
 
-  create_table "neighbours", force: true do |t|
-    t.integer  "tile_one_id"
-    t.integer  "tile_two_id"
-    t.integer  "tile_one_edge"
-    t.integer  "tile_two_edge"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "tiles", force: true do |t|
     t.integer  "number"
     t.integer  "type_id"
