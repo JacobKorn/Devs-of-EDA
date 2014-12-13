@@ -11,6 +11,7 @@ BoardController.prototype = {
 	},
 	renderBoard: function(){
 		this.board.getServerTiles();
+		console.log(this.board.serverTiles)
 		this.board.makeHexagons();
 		this.view.renderBoard();
 		this.view.addClickEvents(this.board.hexagons)
