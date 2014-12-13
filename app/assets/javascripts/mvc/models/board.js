@@ -78,6 +78,17 @@ Board.prototype = {
 		})
 	},
 	logClick: function(event) {
-		console.log(event.target.id)
+		var sending = {
+			tileClicked: {
+				tileId: event.target.id
+			}
+		}
+		$.ajax( {
+			type: "POST",
+			url: "/tiles/click.json",
+			data: sending,
+			success: function(data) {
+			} 
+		})
 	}
 };
