@@ -87,10 +87,8 @@ Tile.prototype = {
 			case "farm":
 				this.canvasHexagon.fill = "#34C805"
 				break;
-				console.log("right here")
 			case "desert":
 				this.canvasHexagon.fill = "#DFB97A"
-				console.log(this)
 				break;
 			default:
 		}
