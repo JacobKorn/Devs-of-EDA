@@ -10,14 +10,18 @@ class Board	< ActiveRecord::Base
 
 
 	has_many :tiles
+
 	
 	def populate
+		chit_numbers = [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12].shuffle
 		TILE_COORDS.each do |x, y_group|
 			y_group.each do |y|
-				tiles << Tile.create(x: x, y: y)
+			tiles << Tile.create(x: x, y: y, number: chit_numbers.pop)
 			end
 		end
 	end
+
+
 
 
 	# def populate_paths

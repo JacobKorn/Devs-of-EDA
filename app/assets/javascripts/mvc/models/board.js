@@ -21,12 +21,12 @@ Board.prototype = {
 		var c = 90;
 	  var b = Math.sqrt(c*c - (c/2)*(c/2));
 		var coords = {
-			topLeft: 		 {x: x - b, y: y + c/2},
-			top: 		 		 {x: x, 		y: y + c},
-			topRight:    {x: x + b, y: y + c/2},
-			bottomRight: {x: x + b, y: y - c/2},
-			bottom: 		 {x: x, 		y: y - c},
-			bottomLeft:  {x: x - b, y: y - c/2}
+			topLeft: 		 { x: x - b, y: y + c/2 },
+			top: 		 		 { x: x, 		 y: y + c   },
+			topRight:    { x: x + b, y: y + c/2 },
+			bottomRight: { x: x + b, y: y - c/2 },
+			bottom: 		 { x: x, 		 y: y - c   },
+			bottomLeft:  { x: x - b, y: y - c/2 }
 		};
 		return coords
 	},

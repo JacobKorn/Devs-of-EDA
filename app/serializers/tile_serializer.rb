@@ -1,5 +1,5 @@
 class TileSerializer < ActiveModel::Serializer
-  attributes :id, :board_id, :serverX, :serverY, :type #, :right_neighbour
+  attributes :id, :board_id, :serverX, :serverY, :type, :chit_number #, :right_neighbour
 
   # def right_neighbour
   # 	right_neighbour = object.right_neighbour
@@ -20,6 +20,10 @@ class TileSerializer < ActiveModel::Serializer
 
   def type
     "this is a type"
+  end
+
+  def chit_number
+    object.number
   end
 
   # belongs_to :board
