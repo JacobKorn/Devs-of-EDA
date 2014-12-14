@@ -94,12 +94,35 @@ class Tile < ActiveRecord::Base
 						tile_three_id: id)
 					self.site_0_id = site_0_new.id
 					n0.site_4_id = site_0_new.id
-					n5.site_2_id = site_0_new.id
 					n0.save
+					n5.site_2_id = site_0_new.id
 					n5.save
 				end
-			elsif !(n5 && n0)
-				site_0_new = Site.create
+			elsif !n5 && n0
+				if n0.site_4_id
+					self.site_0_id = n0.site_4_id
+				else
+					site_0_new = Site.create(
+						tile_two_id: n0.id,
+						tile_three_id: id)
+					self.site_0_id = site_0_new.id
+					n0.site_4_id = site_0_new.id
+					n0.save
+				end
+			elsif n5 && !n0
+				if n5.site_2_id
+					self.site_0_id = n5.site_2_id
+				else
+					site_0_new = Site.create(
+						tile_one_id: n5.id,
+						tile_three_id: id)
+					self.site_0_id = site_0_new.id
+					n5.site_2_id = site_0_new.id
+					n5.save
+				end
+			else
+				site_0_new = Site.create(
+					tile_three_id: id)
 				self.site_0_id = site_0_new.id
 			end
 

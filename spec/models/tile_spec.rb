@@ -82,16 +82,30 @@ RSpec.describe Tile, :type => :model do
 			b = Board.create
 			b.populate
 			t = b.tiles[0]
-			p "---Putting t----"
-			p t
-			p "---Putting t.neighbour_0----"
-			p t.neighbour_0
 			t.discover_site_0
-			p "---Putting t.site_0----"
-			p t.site_0
 
 			expect(t.site_0).to be_truthy
+		end
 
+		describe "site assignment where a tile is missing" do
+
+			it "still assigns a site if neighbour 0 is present but not neighbout 5" do
+				b = Board.create
+				b.populate
+				t = b.tiles[3]
+				t.discover_site_0
+
+				expect(t.site_0.class).to eq(Site)
+			end
+
+			it "still assigns a site if neighbour 5 is present but not neighbout 0" do
+				b = Board.create
+				b.populate
+				t = b.tiles[6]
+				t.discover_site_0
+
+				expect(t.site_0.class).to eq(Site)
+			end
 		end
 
 		it "shouldn't allocate a site on point 0 if it already has one" do
@@ -104,30 +118,61 @@ RSpec.describe Tile, :type => :model do
 			expect(t.site_0).to eq(s)
 		end
 
-		it "site_0: if neighbour_5 has site__2 defined, use that" do
-			b = Board.create
-			s = Site.create
-			b.populate
-			t = b.tiles[5]
-			n5 = t.neighbour_5
-			n5.site_2_id = s.id
-			n5.save
+		describe "use existing sites" do
 
-			t.discover_site_0
-			expect(t.site_0).to eq(s)
-		end
+			it "site_0: if neighbour_5 has site__2 defined, use that" do
+				b = Board.create
+				s = Site.create
+				b.populate
+				t = b.tiles[5]
+				n5 = t.neighbour_5
+				n5.site_2_id = s.id
+				n5.save
 
-		it "site_0: if neighbour_0 has site__4 defined, use that" do
-			b = Board.create
-			s = Site.create
-			b.populate
-			t = b.tiles[5]
-			n0 = t.neighbour_0
-			n0.site_4_id = s.id
-			n0.save
+				t.discover_site_0
+				expect(t.site_0).to eq(s)
+			end
 
-			t.discover_site_0
-			expect(t.site_0).to eq(s)
+			it "site_0: if neighbour_0 has site__4 defined, use that" do
+				b = Board.create
+				s = Site.create
+				b.populate
+				t = b.tiles[5]
+				n0 = t.neighbour_0
+				n0.site_4_id = s.id
+				n0.save
+
+				t.discover_site_0
+				expect(t.site_0).to eq(s)
+			end
+
+			it "site_0 - n0 present !n5: if neighbour_0 has site_2 defined, use that" do
+				b = Board.create
+				s = Site.create
+				b.populate
+				t = b.tiles[3]
+				n0 = t.neighbour_0
+				n0.site_4_id = s.id
+				n0.save
+
+				t.discover_site_0
+				expect(t.site_0).to eq(s)
+			end
+
+			it "site_0 - n5 present !n0: if neighbour_5 has site_2 defined, use that" do
+				b = Board.create
+				s = Site.create
+				b.populate
+				t = b.tiles[6]
+				n5 = t.neighbour_5
+				n5.site_2_id = s.id
+				n5.save
+
+				t.discover_site_0
+				expect(t.site_0).to eq(s)
+			end
+
+
 		end
 
 	end
