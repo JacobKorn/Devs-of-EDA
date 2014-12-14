@@ -7,9 +7,9 @@ View.prototype = {
 	renderBoard: function() {
 		two.update();
 	},
-	addClickEvents: function(hexagons) {
+	addClickEvents: function() {
 		var thisView = this
-		hexagons.forEach(function(hexagon) {
+		this.controller.board.hexagons.forEach(function(hexagon) {
 			var $hex = $(hexagon._renderer.elem)
 			$hex.css('cursor', 'pointer').on('click', function(event) {
 				thisView.changeColor(hexagon);

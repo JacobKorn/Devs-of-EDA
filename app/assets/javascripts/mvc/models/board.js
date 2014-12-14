@@ -1,22 +1,22 @@
 var Board = function(){
 	this.serverTiles;
 	this.hexagons = [];
+	this.boardId;
 };
 
 Board.prototype = {
 	saveTiles: function(data) {
-		this.serverTiles = data.board.tiles
+		this.serverTiles = data.board.tiles;
+		this.boardId = data.board.id;
+		// this.makeHexagons();
 	},
 	getServerTiles: function(){
-		$.ajax( {
+		return $.ajax({
 			type: "POST",
 			url: "/board.json",
-			success: this.saveTiles(data),
-			fail: function(error) {
-				console.log("failed ajax request", error)
-			}
 		})
 	},
+
 	makeHexagon: function(x, y){
 		var c = 90;
 	  var b = Math.sqrt(c*c - (c/2)*(c/2));
@@ -71,8 +71,8 @@ Board.prototype = {
 		return hexagonPoly
 	},
 	makeHexagons: function(){
-		var thisBoard = this
-		console.log(this)
+		var thisBoard = this;
+		console.log("makeHexagons----", this)
 		this.serverTiles.forEach(function(tile) {
 			thisBoard.hexagons.push(thisBoard.makeCanvasHexagon(tile.serverX, tile.serverY))
 		})
@@ -80,7 +80,8 @@ Board.prototype = {
 	logClick: function(event) {
 		var sending = {
 			tileClicked: {
-				tileId: event.target.id
+				tileId: event.target.id,
+				boardId: this.boardId
 			}
 		}
 		$.ajax( {
