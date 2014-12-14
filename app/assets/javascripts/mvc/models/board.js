@@ -2,12 +2,14 @@ var Board = function(){
 	this.serverTiles;
 	this.hexagons = [];
 	this.boardId;
+
 };
 
 Board.prototype = {
 	saveTiles: function(data) {
 		this.serverTiles = data.board.tiles;
 		this.boardId = data.board.id;
+		console.log(data)
 		// this.makeHexagons();
 	},
 	getServerTiles: function(){
@@ -66,13 +68,11 @@ Board.prototype = {
 		var hexagonPoly = this.makeHexagonPoly(hexagon)
 		var id = "[" + String(serverX) + "," + String(serverY) + "]"
 		hexagonPoly.id = id
-		// var hexPoly = $(hexagonPoly).data("serverCoords", {x: serverX, y: serverY});
-		// console.log(hexPoly)
 		return hexagonPoly
 	},
 	makeHexagons: function(){
 		var thisBoard = this;
-		console.log("makeHexagons----", this)
+		console.log("makeHexagons----", this.serverTiles[0].tile_type)
 		this.serverTiles.forEach(function(tile) {
 			thisBoard.hexagons.push(thisBoard.makeCanvasHexagon(tile.serverX, tile.serverY))
 		})
