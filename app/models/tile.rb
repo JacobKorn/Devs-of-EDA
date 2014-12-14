@@ -81,7 +81,6 @@ class Tile < ActiveRecord::Base
 		n5 = neighbour_5
 		n0 = neighbour_0
 		unless site_0
-
 			if n5 && n0
 				if n5.site_2_id
 					self.site_0_id = n5.site_2_id
@@ -125,10 +124,14 @@ class Tile < ActiveRecord::Base
 					tile_three_id: id)
 				self.site_0_id = site_0_new.id
 			end
-
 		end
-
 	end
 
 
 end
+
+
+
+
+
+
