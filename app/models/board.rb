@@ -16,7 +16,7 @@ class Board	< ActiveRecord::Base
 		"forest"     => :wood,
 		"farm"       => :sheep,
 		"mountain"   => :ore,
-		"wheatfield" => :wheat,
+		"wheatfield" => :grain,
 		"clay"			 => :brick
 	}
 
