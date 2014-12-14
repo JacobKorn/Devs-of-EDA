@@ -16,7 +16,7 @@ var Tile = function(boardId, chitNumber, tileType, tileId, serverX, serverY) {
 	this.findHexagonCentrePoint();
 	this.makeCanvasHexagon();
 	this.makeCanvasChit();
-	// this.assignColor();
+	this.assignColor();
 };
 
 Tile.prototype = {
