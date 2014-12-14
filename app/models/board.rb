@@ -12,6 +12,14 @@ class Board	< ActiveRecord::Base
 	has_many :tiles
 	has_many :players
 
+	TILE_RESOURCE = {
+		"forest"     => :wood,
+		"farm"       => :sheep,
+		"mountain"   => :ore,
+		"wheatfield" => :wheat,
+		"clay"			 => :brick
+	}
+
 
 	def populate
 		chit_numbers = [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12].shuffle
@@ -23,6 +31,12 @@ class Board	< ActiveRecord::Base
 			y_group.each do |y|
 			tiles << Tile.create(x: x, y: y, number: chit_numbers.pop, tile_type: tile_types.pop)
 			end
+		end
+	end
+
+	def create_players(board_id)
+		4.times do
+			Player.create({name: Faker::Name.first_name, board_id: board_id})
 		end
 	end
 

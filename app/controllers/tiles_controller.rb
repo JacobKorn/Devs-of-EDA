@@ -7,8 +7,9 @@ class TilesController < ApplicationController
 		@tile = Tile.where(board_id: board_id, x: coords[0], y: coords[1]).first
 
 		player = Board.current_player(board_id)
-		resource_type = @tile.type
-		player.increment_resource(player, resource_type)
+		p player
+		tile_type = @tile.tile_type
+		player.increment_resource(player, tile_type)
 	end
 
 
