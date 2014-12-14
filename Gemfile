@@ -31,10 +31,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'active_model_serializers', '~> 0.9.1'
+gem 'faker'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
-  gem 'faker'
   gem 'pry-byebug'
   gem 'capybara'
   gem 'factory_girl_rails'
