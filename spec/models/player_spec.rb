@@ -33,6 +33,14 @@ RSpec.describe Player, :type => :model do
     end
   end
 
+  describe Player do
+    subject { Player.new(name: 'Steve') }
+      it { should validate_presence_of(:name) }
+      it { should validate_presence_of(:board_id)}
+      it { should belong_to :board}
+  end
+
+
   describe '#win' do
     let(:player) {Player.new({name: 'Steve'})}
 
