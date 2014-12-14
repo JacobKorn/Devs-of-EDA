@@ -7,13 +7,13 @@ View.prototype = {
 	renderBoard: function() {
 		two.update();
 	},
-	addClickEvents: function(hexagons) {
-		var thisView = this
-		hexagons.forEach(function(hexagon) {
-			var $hex = $(hexagon._renderer.elem)
+	addClickEvents: function() {
+		var self = this
+		this.board.hexagons.forEach(function(hexagon) {
+			var $hex = $(hexagon.canvasHexagon._renderer.elem)
 			$hex.css('cursor', 'pointer').on('click', function(event) {
-				thisView.changeColor(hexagon);
-				thisView.controller.board.logClick(event);
+				self.view.changeColor(hexagon.canvasHexagon);
+				self.view.controller.board.logClick(event);
 			})
 		})
 	},

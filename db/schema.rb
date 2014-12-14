@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20141214104715) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20141214104715) do
     t.integer  "board_id"
     t.integer  "x"
     t.integer  "y"
+    t.string   "tile_type"
   end
 
 end
