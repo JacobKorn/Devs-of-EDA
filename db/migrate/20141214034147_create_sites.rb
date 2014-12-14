@@ -1,6 +1,6 @@
-class CreateIntersections < ActiveRecord::Migration
+class CreateSites < ActiveRecord::Migration
   def change
-    create_table :intersections do |t|
+    create_table :sites do |t|
       t.string :tile_one_id
       t.string :integer
       t.integer :tile_two_id

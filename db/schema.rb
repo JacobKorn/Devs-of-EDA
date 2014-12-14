@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214032819) do
+ActiveRecord::Schema.define(version: 20141214035730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20141214032819) do
   create_table "boards", force: true do |t|
   end
 
-  create_table "intersections", force: true do |t|
+  create_table "sites", force: true do |t|
     t.string   "tile_one_id"
     t.string   "integer"
     t.integer  "tile_two_id"
@@ -28,11 +28,9 @@ ActiveRecord::Schema.define(version: 20141214032819) do
     t.datetime "updated_at"
   end
 
-  create_table "neighbours", force: true do |t|
-    t.integer  "tile_one_id"
-    t.integer  "tile_two_id"
-    t.integer  "tile_one_edge"
-    t.integer  "tile_two_edge"
+  create_table "tile_sites", force: true do |t|
+    t.integer  "tile_id"
+    t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +43,12 @@ ActiveRecord::Schema.define(version: 20141214032819) do
     t.integer  "board_id"
     t.integer  "x"
     t.integer  "y"
+    t.integer  "site_0_id"
+    t.integer  "site_1_id"
+    t.integer  "site_2_id"
+    t.integer  "site_3_id"
+    t.integer  "site_4_id"
+    t.integer  "site_5_id"
   end
 
 end
