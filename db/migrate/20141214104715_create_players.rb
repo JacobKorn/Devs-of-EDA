@@ -7,7 +7,7 @@ class CreatePlayers < ActiveRecord::Migration
       t.integer :ore, default: 0
       t.integer :grain, default: 0
       t.integer :brick, default: 0
-      t.integer :victory_points: 0
+      t.integer :victory_points, default: 0
 
       t.timestamps
     end

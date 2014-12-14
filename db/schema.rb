@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 20141214104715) do
 
   create_table "players", force: true do |t|
     t.string   "name"
-    t.integer  "wood"
-    t.integer  "sheep"
-    t.integer  "ore"
-    t.integer  "grain"
-    t.integer  "brick"
-    t.integer  "victory_points"
+    t.integer  "wood",           default: 0
+    t.integer  "sheep",          default: 0
+    t.integer  "ore",            default: 0
+    t.integer  "grain",          default: 0
+    t.integer  "brick",          default: 0
+    t.integer  "victory_points", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
