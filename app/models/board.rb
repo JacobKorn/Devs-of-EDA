@@ -10,8 +10,9 @@ class Board	< ActiveRecord::Base
 
 
 	has_many :tiles
+	has_many :players
 
-	
+
 	def populate
 		chit_numbers = [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12].shuffle
 		insert_number = rand(19)
@@ -36,6 +37,6 @@ class Board	< ActiveRecord::Base
 	end
 
 
-	
+
 
 end
