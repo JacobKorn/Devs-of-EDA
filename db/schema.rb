@@ -11,12 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141211225255) do
+ActiveRecord::Schema.define(version: 20141214032819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "boards", force: true do |t|
+  end
+
+  create_table "intersections", force: true do |t|
+    t.string   "tile_one_id"
+    t.string   "integer"
+    t.integer  "tile_two_id"
+    t.integer  "tile_three_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "neighbours", force: true do |t|
+    t.integer  "tile_one_id"
+    t.integer  "tile_two_id"
+    t.integer  "tile_one_edge"
+    t.integer  "tile_two_edge"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tiles", force: true do |t|

@@ -1,11 +1,11 @@
 class Board	< ActiveRecord::Base
 
 	TILE_COORDS = {
-		-2 => [  0,  1, 2 ],
-		-1 => [ -1,  0, 1, 2],
+		-2 => [         0, 1, 2 ],
+		-1 => [    	-1, 0, 1, 2	],
 		 0 => [ -2, -1, 0, 1, 2 ],
-		 1 => [ -2, -1, 0, 1 ],
-		 2 => [ -2, -1, 0]
+		 1 => [ -2, -1, 0, 1 		],
+		 2 => [ -2, -1, 0				]
 	}
 
 
@@ -20,13 +20,7 @@ class Board	< ActiveRecord::Base
 	end
 
 
-	# def populate_paths
-	# 	tiles.each do |tile|
-	# 		unless tile.right_neighbour == nil
-	# 			Path.create(tile_one: , tile_two: )
-	# 		end
-	# 	end
-	# end
+
 
 
 	
