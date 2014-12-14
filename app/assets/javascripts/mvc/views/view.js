@@ -8,12 +8,12 @@ View.prototype = {
 		two.update();
 	},
 	addClickEvents: function() {
-		var thisView = this
-		this.controller.board.hexagons.forEach(function(hexagon) {
-			var $hex = $(hexagon._renderer.elem)
+		var self = this
+		this.board.hexagons.forEach(function(hexagon) {
+			var $hex = $(hexagon.canvasHexagon._renderer.elem)
 			$hex.css('cursor', 'pointer').on('click', function(event) {
-				thisView.changeColor(hexagon);
-				thisView.controller.board.logClick(event);
+				self.view.changeColor(hexagon.canvasHexagon);
+				self.view.controller.board.logClick(event);
 			})
 		})
 	},

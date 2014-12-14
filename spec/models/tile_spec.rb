@@ -120,6 +120,12 @@ RSpec.describe Tile, :type => :model do
 
 		describe "use existing sites" do
 
+			before(:each) do
+				Board.destroy_all
+				Site.destroy_all
+				Tile.destroy_all
+			end
+
 			it "site_0: if neighbour_5 has site__2 defined, use that" do
 				b = Board.create
 				s = Site.create
