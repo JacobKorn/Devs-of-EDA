@@ -5,7 +5,7 @@ root 'static_pages#game_board'
   resources :board, only: [:create, :show]
   resources :tile, only: [:index]
 
-  post 'tiles/click' => 'tiles#click_tile'
+  post 'tiles/click' => 'tiles#tile_clicked'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

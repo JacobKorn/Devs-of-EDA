@@ -26,6 +26,15 @@ class Board	< ActiveRecord::Base
 	end
 
 
+	def self.players(board_id)
+		@players = Player.where(board_id: board_id)
+	end
+
+	def self.current_player(board_id)
+																	## vvvVVVvvvVVV rewite to find actual player
+		@player = Board.players(board_id).first # returning first player
+	end
+
 
 	
 
