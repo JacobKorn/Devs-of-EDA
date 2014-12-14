@@ -1,3 +1,57 @@
+#draw-shapes {
+	background-color: #B1D6F5;
+	background-image: url("http://www.gamer.ru/system/attached_images/images/000/406/155/original/sea.jpg");
+}
+
+#scoreboard {
+	width: 150px;
+	height: 40px;
+	padding: 5px;
+	margin-left: 1000px;
+	text-align: center;
+	font-family: junction;
+}
+
+.resource {
+	font-size: 50px;
+	line-height: 84px;
+}
+
+#player_name {
+	margin-top: 250px;
+	height: 100px;
+	background-color: lightblue;
+}
+
+#wood {
+	color: white;
+	height: 80px;
+	background-image: url("http://bcpassport.com/wp-content/uploads/woods-background.png");
+}
+
+#brick {
+	height: 80px;
+	background-image: url("http://vectorboom.com/tutorials/BrickBackground/final.jpg");	
+}
+
+#sheep {
+	height: 80px;
+	background-image: url("http://lifeasahuman.com/files/2010/04/grazingmerinos.jpg");
+}
+
+#ore {
+	color: lightgrey;
+	height: 80px;
+	background-image: url("http://thumbs.dreamstime.com/x/metallic-black-ore-3232140.jpg");
+}
+
+#wheat {
+	height: 80px;
+	background-image: url("http://worshiphousemedia.s3.amazonaws.com/images/main/s/mo/v2w/mo/goldenwheatbackground.jpg");
+}
+
+
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
