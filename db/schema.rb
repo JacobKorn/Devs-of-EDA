@@ -20,8 +20,7 @@ ActiveRecord::Schema.define(version: 20141214035730) do
   end
 
   create_table "sites", force: true do |t|
-    t.string   "tile_one_id"
-    t.string   "integer"
+    t.integer  "tile_one_id"
     t.integer  "tile_two_id"
     t.integer  "tile_three_id"
     t.datetime "created_at"

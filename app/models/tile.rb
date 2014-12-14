@@ -30,37 +30,73 @@ class Tile < ActiveRecord::Base
 	end	
 
 	def site_0
-		Site.find(site_0_id)
+		if site_0_id
+			Site.find_by(id: site_0_id)
+		else
+			nil
+		end
 	end
 
 	def site_1
-		Site.find(site_1_id)
+		if site_1_id
+			Site.find_by(id: site_1_id)
+		else
+			nil
+		end
 	end
 
 	def site_2
-		Site.find(site_2_id)
+		if site_2_id
+			Site.find_by(id: site_2_id)
+		else
+			nil
+		end	
 	end
 
 	def site_3
-		Site.find(site_3_id)
+		if site_3_id
+			Site.find_by(id: site_3_id)
+		else
+			nil
+		end
 	end
 
 	def site_4
-		Site.find(site_4_id)
+		if site_4_id
+			Site.find_by(id: site_4_id)
+		else
+			nil
+		end
 	end
 
 	def site_5
-		Site.find(site_5_id)
+		if site_5_id
+			Site.find_by(id: site_5_id)
+		else
+			nil
+		end
 	end
 
 	def discover_site_0
-		neighbour_5 = top_left_neighbour
-		neighbour_0 = top_left_neighbour
-		
-		if neighbour_5 || neighbour_0
-			unless neighbour_5.site_2
-				
-			end
+		n5 = neighbour_5
+		n0 = neighbour_0
+		unless site_0
+			# if neighbour_5.site_2
+			# 	site_0_id = neighbour_5.site_0.id
+			# elsif neighbour_0.site_4
+			# 	site_0_id = neighbour_0.site_4.id
+			# else
+			# 	site_0_id = Site.create(tile_one_id: neighbour_5.id, tile_two_id: neighbour_0.id, tile_three_id: id).id
+			# end
+			site_0_new = Site.create(
+				tile_one_id: n5.id,
+				tile_two_id: n0.id,
+				tile_three_id: id)
+			self.site_0_id = site_0_new.id
+			n0.site_4_id = site_0_new.id
+			n5.site_2_id = site_0_new.id
+			n0.save
+			n5.save
 		end
 
 	end

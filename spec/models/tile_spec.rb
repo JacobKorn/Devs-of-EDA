@@ -36,7 +36,58 @@ RSpec.describe Tile, :type => :model do
 			tile = Tile.where(board_id: board.id, x: -2, y: 0).first
 			expect(tile.neighbour_5).to eq(nil)
 		end
-	
+	end
+
+	describe "sites" do
+
+		it "returns nil for empty sites" do
+			t = Tile.new
+			expect([
+				t.site_0,
+				t.site_1,
+				t.site_2,
+				t.site_3,
+				t.site_4,
+				t.site_5
+				]).to eq([nil,nil,nil,nil,nil,nil])
+		end
+
+		it "returns the site if it is present" do
+			t = Tile.create
+			s = Site.create
+			t.site_0_id = s.id
+			expect(t.site_0).to eq(s)
+		end
+
+		it "make a site for three hexes on site 0" do
+			b = Board.create
+			b.populate
+			t = b.tiles[5]
+			t.discover_site_0
+			expect(t.site_0).to be_truthy
+		end
+
+		it "a new site on site 0 is shared with neighbours 5 and 0" do
+			b = Board.create
+			b.populate
+			t = b.tiles[5]
+			t.discover_site_0
+			expect([
+				t.neighbour_5.site_2,
+				t.neighbour_0.site_4
+				 ]).to eq([t.site_0, t.site_0])
+		end
+
+		it "shouldn't allocate a site if it already has one" do
+			b = Board.create
+			s = Site.create
+			b.populate
+			t = b.tiles[5]
+			t.site_0_id = s.id
+			t.discover_site_0
+			expect(t.site_0).to eq(s)
+		end
+
 	end
 
 end
