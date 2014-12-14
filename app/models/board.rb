@@ -14,9 +14,10 @@ class Board	< ActiveRecord::Base
 	
 	def populate
 		chit_numbers = [2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12].shuffle
+		tile_types = ["forest", "forest", "forest", "forest", "farm", "farm", "farm", "farm", "mountain", "mountain", "mountain", "wheatfield", "wheatfield", "wheatfield", "wheatfield", "clay", "clay", "clay", "desert"].shuffle
 		TILE_COORDS.each do |x, y_group|
 			y_group.each do |y|
-			tiles << Tile.create(x: x, y: y, number: chit_numbers.pop)
+			tiles << Tile.create(x: x, y: y, number: chit_numbers.pop, tile_type: tile_types.pop)
 			end
 		end
 	end
