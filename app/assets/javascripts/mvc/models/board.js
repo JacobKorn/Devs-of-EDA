@@ -2,6 +2,7 @@ var Board = function(){
 	this.serverTiles;
 	this.hexagons = [];
 	this.boardId;
+	this.resources;
 
 };
 
@@ -23,6 +24,9 @@ Board.prototype = {
 			thisBoard.hexagons.push(new Tile(tile.board_id, tile.chit_number, tile.tile_type, tile.id, tile.serverX, tile.serverY))
 		})
 	},
+	updateResources: function(data) {
+		this.resources = data.player.resources
+	},
 	logClick: function(event) {
 		var sending = {
 			tileClicked: {
@@ -30,13 +34,10 @@ Board.prototype = {
 				boardId: this.boardId
 			}
 		}
-		$.ajax( {
+		return $.ajax({
 			type: "POST",
 			url: "/tiles/click.json",
-			data: sending,
-			success: function(data) {
-				console.log("DATA-----", data)
-			} 
+			data: sending
 		})
 	}
 };
