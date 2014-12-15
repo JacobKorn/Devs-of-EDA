@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
 
-root 'static_pages#game_board'
+# root 'static_pages#game_board'
+root 'boards#index'
 
-  resources :board, only: [:create, :show]
-  resources :tile, only: [:index]
+  resources :boards, only: [:index, :create, :show]
+  resources :tiles, only: [:index]
 
   post 'tiles/click' => 'tiles#tile_clicked'
+  get 'game' => 'static_pages#game_board', as: :new_game
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

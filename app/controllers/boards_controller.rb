@@ -1,8 +1,12 @@
 require 'faker'
 
-class BoardController < ApplicationController
+class BoardsController < ApplicationController
 
 	respond_to :json
+
+	def index
+		@boards = Board.all
+	end
 
 	def create
 		@board = Board.create
@@ -15,7 +19,12 @@ class BoardController < ApplicationController
 	end
 
 	def show
-		@board = Board.find(params)
+		@board = Board.find(params[:id])
+
+		respond_to do |format|
+			format.html { render :show }
+			format.json { render json: @board }
+		end
 	end
 
 	

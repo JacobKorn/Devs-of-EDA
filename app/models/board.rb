@@ -20,7 +20,6 @@ class Board	< ActiveRecord::Base
 		"clay"			 => :brick
 	}
 
-
 	def populate
 		chit_numbers = [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12].shuffle
 		insert_number = rand(19)
@@ -49,8 +48,5 @@ class Board	< ActiveRecord::Base
 																	## vvvVVVvvvVVV rewite to find actual player
 		@player = Board.players(board_id).first # returning first player
 	end
-
-
-
 
 end

@@ -55,13 +55,13 @@ ActiveRecord::Schema.define(version: 20141214211843) do
     t.integer  "board_id"
     t.integer  "x"
     t.integer  "y"
-    t.string   "tile_type"
     t.integer  "site_0_id"
     t.integer  "site_1_id"
     t.integer  "site_2_id"
     t.integer  "site_3_id"
     t.integer  "site_4_id"
     t.integer  "site_5_id"
+    t.string   "tile_type"
   end
 
 end
