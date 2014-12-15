@@ -1,6 +1,6 @@
 #draw-shapes {
 	background-color: #B1D6F5;
-	background-image: url("http://www.gamer.ru/system/attached_images/images/000/406/155/original/sea.jpg");
+	background-image: url(./sea.jpg);
 }
 
 #scoreboard {
@@ -11,43 +11,68 @@
 	text-align: center;
 	font-family: junction;
 }
+.dice_roll {
+	line-height: 60px;
+	font-size: 50px;
+	max-height: 85px;
+	border-style: solid;
+	border-color: black;
+	background-color: black;
+}
+
+button {
+	background-image: url(./dice.jpg);
+	color: white;
+	height: 85px;
+	width: 90px;
+	line-height: 70px;
+	font-size: 50px;
+}
 
 .resource {
 	font-size: 50px;
 	line-height: 84px;
+	border-style: solid;
+	border-color: black;
 }
 
 #player_name {
-	margin-top: 250px;
-	height: 100px;
-	background-color: lightblue;
+	margin-top: 200px;
+	height: 80px;
+	background-image: url(./name.jpg);
+	line-height: 40px;
+	border-style: solid;
+	border-color: black;
 }
 
 #wood {
-	color: white;
+	color: #C3C98B;
 	height: 80px;
-	background-image: url("http://bcpassport.com/wp-content/uploads/woods-background.png");
+	background-image: url(./woods-background.png);
 }
 
 #brick {
 	height: 80px;
-	background-image: url("http://vectorboom.com/tutorials/BrickBackground/final.jpg");	
+	color: #F5D983;
+	background-image: url(./brick.jpg);	
 }
 
 #sheep {
 	height: 80px;
-	background-image: url("http://lifeasahuman.com/files/2010/04/grazingmerinos.jpg");
+	color: #304506;
+	background-image: url(./grazingmerinos.jpg);
 }
 
 #ore {
-	color: lightgrey;
+	color: #D7DDDF;
 	height: 80px;
-	background-image: url("http://thumbs.dreamstime.com/x/metallic-black-ore-3232140.jpg");
+	background-image: url(./ore.jpg);
 }
 
 #wheat {
+	color: #6B4F04;
 	height: 80px;
-	background-image: url("http://worshiphousemedia.s3.amazonaws.com/images/main/s/mo/v2w/mo/goldenwheatbackground.jpg");
+	background-image: url(./goldenwheatbackground.jpg);
 }
 
 
