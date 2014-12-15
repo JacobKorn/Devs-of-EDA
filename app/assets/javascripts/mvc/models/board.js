@@ -35,6 +35,7 @@ Board.prototype = {
 			url: "/tiles/click.json",
 			data: sending,
 			success: function(data) {
+				console.log("DATA-----", data)
 			} 
 		})
 	}
