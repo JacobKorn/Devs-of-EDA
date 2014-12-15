@@ -10,6 +10,10 @@ class TilesController < ApplicationController
 		p player
 		tile_type = @tile.tile_type
 		player.increment_resource(player, tile_type)
+
+		respond_to do |format|
+			format.json { render json: player}
+		end
 	end
 
 
