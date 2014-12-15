@@ -9,7 +9,8 @@ class TilesController < ApplicationController
 		player = Board.current_player(board_id)
 		p player
 		tile_type = @tile.tile_type
-		player.increment_resource(player, tile_type)
+
+		player.increment_resource(player, tile_type) unless tile_type == "desert"
 
 		respond_to do |format|
 			format.json { render json: player}
