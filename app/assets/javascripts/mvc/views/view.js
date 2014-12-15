@@ -17,16 +17,17 @@ View.prototype = {
 		})
 	},
 	updateResources: function(resources) {
-		var $brickContents = $("#brick").contents();
-		var $woodContents = $("#wood").contents();
-		var $sheepContents = $("#sheep").contents();
-		var $oreContents = $("#ore").contents();
-		var $wheatContents = $("#wheat").contents();
+		console.log("resources------",resources)
+		var $fishContents = $("#fish_and_chips").contents();
+		var $sleepContents = $("#sleep").contents();
+		var $coffeeContents = $("#coffee").contents();
+		var $haagenContents = $("#haagen").contents();
+		var $pizzaContents = $("#pizza").contents();
 
-		$brickContents.replaceWith(resources.brick);
-		$woodContents.replaceWith(resources.wood);
-		$sheepContents.replaceWith(resources.sheep);
-		$oreContents.replaceWith(resources.ore);
-		$wheatContents.replaceWith(resources.grain);
+		$sleepContents.replaceWith(resources.sleep);
+		$fishContents.replaceWith(resources.fish_and_chips);
+		$coffeeContents.replaceWith(resources.coffee);
+		$haagenContents.replaceWith(resources.haagen);
+		$pizzaContents.replaceWith(resources.pizza);
 	}
 };

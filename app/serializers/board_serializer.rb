@@ -7,25 +7,15 @@ class BoardSerializer < ActiveModel::Serializer
 
   	{
   		"resources" => {
-		  	"wood"    => player.wood,
-				"sheep"   => player.sheep,
-				"ore"     => player.ore,
-				"grain"   => player.grain,
-				"brick"   => player.brick
+		  	"fish_and_chips" => player.fish_and_chips,
+        "coffee" => player.coffee,
+        "haagen" => player.haagen,
+        "pizza" => player.pizza,
+        "sleep" => player.sleep
   		}
   	}
 
   end
 
-  # def resources
-  # 	player = Board.current_player(object.id)
-  	
-  # 	{
-	 #  	"wood" => player.wood,
-		# 	"sheep" => player.sheep,
-		# 	"ore" => player.ore,
-		# 	"grain" => player.grain,
-		# 	"brick" => player.brick
-  # 	}	
-  # end
+
 end

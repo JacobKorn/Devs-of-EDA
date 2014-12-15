@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141214211843) do
+ActiveRecord::Schema.define(version: 20141215222513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(version: 20141214211843) do
 
   create_table "players", force: true do |t|
     t.string   "name"
-    t.integer  "wood",           default: 0
-    t.integer  "sheep",          default: 0
-    t.integer  "ore",            default: 0
-    t.integer  "grain",          default: 0
-    t.integer  "brick",          default: 0
+    t.integer  "fish_and_chips", default: 0
+    t.integer  "coffee",         default: 0
+    t.integer  "haagen",         default: 0
+    t.integer  "pizza",          default: 0
+    t.integer  "sleep",          default: 0
     t.integer  "victory_points", default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
