@@ -7,7 +7,7 @@ class Player < ActiveRecord::Base
   end
 
   def increment_resource(player, tile_type)
-  	p "---PLAYER"
+    p "---PLAYER"
   	resource_type = Board::TILE_RESOURCE[tile_type]
   	p "--- before increment"
   	p player[resource_type]
@@ -15,6 +15,17 @@ class Player < ActiveRecord::Base
   	player.save
   	p "--- after increment"
   	p player[resource_type]
+  end
+
+  def conduct_ee_session(player)
+    if player[sleep] >= 1 && player[coffee] >= 1 && player[pizza] >= 1 && player[haagen] >= 1
+      player[ee_session] += 1
+      player[sleep] -= 1
+      player[coffee] -= 1
+      player[pizza] -= 1
+      player[haagen] -= 1
+      player.save
+    end
   end
 
 end

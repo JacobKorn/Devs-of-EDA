@@ -31,6 +31,10 @@ RSpec.describe Player, :type => :model do
     it "should give Player starting victory points of 0" do
       expect(player.victory_points). to eq(0)
     end
+
+    it "should give Player starting ee_session points of 0" do
+      expect(player._ee_ssesion).to eq(0)
+    end
   end
 
   describe Player do
@@ -55,4 +59,10 @@ RSpec.describe Player, :type => :model do
     end
   end
 
+  # describe '#conduct_ee_session' do
+  #   let(:player) { Player.new(name: 'Steve')}
+  
+  #   it "should should bump up your ee_session points by one"
+
+  # end
 end
