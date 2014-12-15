@@ -11,11 +11,11 @@ class PlayerSerializer < ActiveModel::Serializer
 
   def resources
   	{
-	  	"wood" => object.wood,
-			"sheep" => object.sheep,
-			"ore" => object.ore,
-			"grain" => object.grain,
-			"brick" => object.brick
+	  	"fish_and_chips" => object.fish_and_chips,
+			"coffee" => object.coffee,
+			"haagen" => object.haagen,
+			"pizza" => object.pizza,
+			"sleep" => object.sleep
   	}	
   end
 

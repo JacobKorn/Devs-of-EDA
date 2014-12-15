@@ -72,22 +72,22 @@ Tile.prototype = {
 
 	assignColor: function() {
 		switch (this.tileType) {
-			case "forest":
+			case "fish_and_chip_shop":
 				this.canvasHexagon.fill = "#1D652E";
 				break;
-			case "wheatfield": 
-				this.canvasHexagon.fill = "#F8D425";
-				break;
-			case "mountain":
-				this.canvasHexagon.fill = "#727576";
-				break;
-			case "clay":
-				this.canvasHexagon.fill = "#CC4117";
-				break;
-			case "farm":
+			case "coffee_shop":
 				this.canvasHexagon.fill = "#34C805"
 				break;
-			case "desert":
+			case "liquor_shop":
+				this.canvasHexagon.fill = "#727576";
+				break;
+			case "pizza_shop": 
+				this.canvasHexagon.fill = "#F8D425";
+				break;
+			case "bed":
+				this.canvasHexagon.fill = "#CC4117";
+				break;
+			case "undefined":
 				this.canvasHexagon.fill = "#DFB97A"
 				break;
 			default:
