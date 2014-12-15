@@ -6,7 +6,19 @@ $(function() {
 	two = new Two(params).appendTo(elem);
 
 	var game = new BoardController();
-	game.start();
+	var url = window.location.pathname;
+	var board = url.split('/').pop();
+
+	if (board == "game") {
+		game.newGame();
+	}	
+	else {
+		game.loadGame(board);
+	}
+		
+
+
+		// game.start();
 
 });
 

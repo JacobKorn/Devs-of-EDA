@@ -1,0 +1,15 @@
+<div id="splash">
+	<h1>welcomeeeeeee</h1>
+	<div>
+		<%= link_to "new_game", new_game_path %>
+	</div>
+	<div>
+		<ul>
+			<% @boards.each do |board| %>
+				<li>
+					<%= link_to board.id, board %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+</div>
