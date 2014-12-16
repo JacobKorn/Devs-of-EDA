@@ -1,10 +1,7 @@
 var BoardController = function() {
 	this.board = new Board();
 	this.view = new View(this);
-
-	//move this to a function and call when initialized
-	this.view.addEndTurnClickEvents();
-	this.view.addEeClickEvent();
+	this.initializeClickEvents();
 };
 
 BoardController.prototype = {
@@ -24,6 +21,10 @@ BoardController.prototype = {
 			.done(this.view.addClickEvents.bind(this))
 			.done(this.board.updateResourcesOnLoad.bind(this.board))
 			.done(this.updateResources.bind(this))
+	},
+	initializeClickEvents: function() {
+		this.view.addEndTurnClickEvents();
+		this.view.addEeClickEvent();
 	},
 
 	logClick: function(event) {
