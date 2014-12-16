@@ -8,6 +8,10 @@ class BoardsController < ApplicationController
 		@boards = Board.all
 	end
 
+	def new
+		
+	end
+
 	def create
 		@board = Board.create
 		@board.populate
