@@ -60,15 +60,32 @@ RSpec.describe Player, :type => :model do
   end
 
   describe '#conduct_ee_session' do
-    let(:player) { Player.new(name: 'Steve', board_id: 1, fish_and_chips: 1, sleep: 1, coffee: 1, pizza: 1, haagen: 1)}
+    let(:player) { Player.new(name: 'Steve', board_id: 5, fish_and_chips: 5, sleep: 5, coffee: 5, pizza: 5, haagen: 5)}
       
       before do
         player.conduct_ee_session
       end
 
-    it "should should bump up your ee_session points by one" do
-    expect(player.ee_session).to eq(1)
+
+    it "should bump up your ee_session points by one" do
+      expect(player.ee_session).to eq(1)
     end
+
+    it "should bump up your victory points by one" do
+      expect(player.victory_points).to eq(1)
+    end
+
+    it 'checks to see if you have won the match or not' do
+      # expect(player).to receive(:win?).with(no_args)
+      expect(player).to receive(:increment_victory_points).with(no_args)
+    end
+
+    # it "should check to see if you have won the match or not" do
+    #   player.victory_points = 4
+    #   player.save
+    #   player.conduct_ee_session
+    #   expect(player.win?).to be true
+    # end
   end
 
   describe '#decrement_resources' do
@@ -94,4 +111,5 @@ RSpec.describe Player, :type => :model do
         expect(player.haagen).to eq(0)
       end
   end
+
 end

@@ -3,6 +3,11 @@ class Player < ActiveRecord::Base
   belongs_to :board
   validates :name, :board_id, presence: true
   def win?
+    if victory_points >= 5
+      puts "you win"
+    else 
+      puts "you have not won yet"
+    end
     victory_points < 5 ? false : true
   end
 
@@ -50,6 +55,7 @@ private
 
   def increment_victory_points
     self.victory_points += 1
+    win?
   end
 
   def increment_ee_session
