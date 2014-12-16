@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20141215222513) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "board_id"
+    t.integer  "ee_session",     default: 0
   end
 
   create_table "sites", force: true do |t|

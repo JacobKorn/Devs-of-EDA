@@ -12,5 +12,46 @@ class Player < ActiveRecord::Base
   	player.save
   end
 
+  def conduct_ee_session
+    if has_resources?
+      decrement_resources
+      increment_ee_session
+      save
+    end
+  end
+
+  def decrement_resources
+    decrement_sleep
+    decrement_coffee
+    decrement_pizza
+    decrement_haagen
+  end
+
+private
+
+  def increment_ee_session
+    self.ee_session += 1
+  end
+
+  def decrement_sleep
+    self.sleep -= 1 if sleep > 0
+  end
+
+  def decrement_coffee
+    self.coffee -= 1 if coffee > 0
+  end
+
+  def decrement_pizza
+    self.pizza -= 1 if pizza > 0
+  end
+
+  def decrement_haagen
+    self.haagen -= 1 if haagen > 0
+  end
+
+  def has_resources?
+    sleep >= 1 && coffee >= 1 && pizza >= 1 && haagen >= 1
+  end
+
 end
 
