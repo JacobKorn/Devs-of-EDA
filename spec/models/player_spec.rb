@@ -33,7 +33,7 @@ RSpec.describe Player, :type => :model do
     end
 
     it "should give Player starting ee_session points of 0" do
-      expect(player._ee_ssesion).to eq(0)
+      expect(player.ee_session).to eq(0)
     end
   end
 
@@ -59,10 +59,39 @@ RSpec.describe Player, :type => :model do
     end
   end
 
-  # describe '#conduct_ee_session' do
-  #   let(:player) { Player.new(name: 'Steve')}
-  
-  #   it "should should bump up your ee_session points by one"
+  describe '#conduct_ee_session' do
+    let(:player) { Player.new(name: 'Steve', sleep: 1, coffee: 1, pizza: 1, haagen: 1)}
+      
+      before do
+        player.conduct_ee_session
+      end
 
-  # end
+    it "should should bump up your ee_session points by one" do
+    expect(player.ee_session).to eq(1)
+    end
+  end
+
+  describe '#decrement_resources' do
+    let(:player) { Player.new(name: 'Steve', sleep: 1, coffee: 1, pizza: 1, haagen: 1)}
+      
+      before do
+        player.decrement_resources
+      end
+
+      it 'decrements sleep by 1' do
+        expect(player.sleep).to eq(0)
+      end
+
+      it 'decrements coffee by 1' do
+        expect(player.coffee).to eq(0)
+      end
+
+      it 'decrements pizza by 1' do
+        expect(player.pizza).to eq(0)
+      end
+
+      it 'decrements haagen by 1' do
+        expect(player.haagen).to eq(0)
+      end
+  end
 end
