@@ -2,12 +2,13 @@ var BoardController = function() {
 	this.board = new Board();
 	this.view = new View(this);
 
-
+	//move this to a function and call when initialized
 	this.view.addEndTurnClickEvents();
 	this.view.addEeClickEvent();
 };
 
 BoardController.prototype = {
+	//pull out similar calls into new function
 	newGame: function() {
 		this.board.getServerTiles()
 			.done(this.board.saveTiles.bind(this.board))
@@ -21,7 +22,7 @@ BoardController.prototype = {
 			.done(this.board.makeHexagons.bind(this.board))
 			.done(this.view.renderBoard)
 			.done(this.view.addClickEvents.bind(this))
-			.done(this.board.updateResourcesOnLoad.bind(this.board))			
+			.done(this.board.updateResourcesOnLoad.bind(this.board))
 			.done(this.updateResources.bind(this))
 	},
 
@@ -33,7 +34,7 @@ BoardController.prototype = {
 	},
 	endTurn: function(event) {
 		this.board.endTurn()
-			.done(this.board.updateResourcesTurns.bind(this.board));		
+			.done(this.board.updateResourcesTurns.bind(this.board));
 		console.log("ENDTURN-----", this.board);
 		this.view.updateResources(this.board);
 	},
