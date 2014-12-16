@@ -23,6 +23,7 @@ View.prototype = {
 		var $coffeeContents = $("#coffee").contents();
 		var $haagenContents = $("#haagen").contents();
 		var $pizzaContents = $("#pizza").contents();
+		var $ee_sessionContents = $("#ee_session").contents();
 
 		$sleepContents.replaceWith(resources.sleep);
 		$fishContents.replaceWith(resources.fish_and_chips);

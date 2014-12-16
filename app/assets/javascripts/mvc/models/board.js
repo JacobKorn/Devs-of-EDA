@@ -13,7 +13,7 @@ Board.prototype = {
 	getServerTiles: function(){
 		return $.ajax({
 			type: "POST",
-			url: "/board.json",
+			url: "/boards.json",
 		})
 	},
 
