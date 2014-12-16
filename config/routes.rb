@@ -3,11 +3,10 @@ Rails.application.routes.draw do
 # root 'static_pages#game_board'
 root 'boards#index'
 
-  resources :boards, only: [:index, :create, :show]
+  resources :boards, only: [:index, :new, :create, :show]
   resources :tiles, only: [:index]
 
   post 'tiles/click' => 'tiles#tile_clicked'
-  get 'game' => 'static_pages#game_board', as: :new_game
 
   put 'players/:id/conduct_ee_session' => 'players#conduct_ee_session'
 

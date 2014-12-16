@@ -9,16 +9,12 @@ $(function() {
 	var url = window.location.pathname;
 	var board = url.split('/').pop();
 
-	if (board == "game") {
+	if (board == "new") {
 		game.newGame();
 	}	
 	else {
 		game.loadGame(board);
 	}
-		
-
-
-		// game.start();
 
 });
 
