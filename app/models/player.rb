@@ -7,10 +7,6 @@ class Player < ActiveRecord::Base
   end
 
   def increment_resource(player, tile_type)
-<<<<<<< HEAD
-    p "---PLAYER"
-=======
->>>>>>> master
   	resource_type = Board::TILE_RESOURCE[tile_type]
   	player[resource_type] += 1
   	player.save
