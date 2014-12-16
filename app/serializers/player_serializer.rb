@@ -15,7 +15,8 @@ class PlayerSerializer < ActiveModel::Serializer
 			"coffee" => object.coffee,
 			"haagen" => object.haagen,
 			"pizza" => object.pizza,
-			"sleep" => object.sleep
+			"sleep" => object.sleep,
+      "ee_session" => object.ee_session
   	}	
   end
 

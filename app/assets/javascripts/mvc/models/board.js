@@ -18,12 +18,14 @@ Board.prototype = {
 			url: "/boards.json",
 		})
 	},
+
 	loadServerTiles: function(board){
 		return $.ajax({
 			type: "GET",
 			url: "/boards/"+ board +".json",
 		})
 	},
+
 	makeHexagons: function(){
 		var thisBoard = this;
 		this.serverTiles.forEach(function(tile) {
@@ -43,10 +45,18 @@ Board.prototype = {
 				boardId: this.boardId
 			}
 		}
-		return $.ajax({
+		return $.ajax( {
 			type: "POST",
 			url: "/tiles/click.json",
-			data: sending
+			data: sending,
+			success: function(data) {
+			} 
+		})
+	},
+	conductEeSession: function(event) {
+		return $.ajax({
+			type: "PUT",
+			url: "/players/" + this.boardId + "/conduct_ee_session.json"
 		})
 	}
 };
