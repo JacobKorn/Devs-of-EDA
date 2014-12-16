@@ -1,6 +1,9 @@
 var BoardController = function() {
 	this.board = new Board();
 	this.view = new View(this);
+
+
+	this.view.addEeClickEvent();
 };
 
 BoardController.prototype = {
@@ -17,7 +20,6 @@ BoardController.prototype = {
 			.done(this.board.makeHexagons.bind(this.board))
 			.done(this.view.renderBoard)
 			.done(this.view.addClickEvents.bind(this))
-			.done(console.log(this))
 			.done(this.board.updateResourcesOnLoad.bind(this.board))			
 			.done(this.updateResources.bind(this))
 	},
@@ -39,5 +41,10 @@ BoardController.prototype = {
 	},
 	updateResources: function() {
 		this.view.updateResources(this.board.resources);
-	}
+	},
+	conductEeSession: function(event) {
+		this.board.conductEeSession(event)
+			.done(this.board.updateResources.bind(this.board))
+			.done(this.updateResources.bind(this))
+	},
 };
