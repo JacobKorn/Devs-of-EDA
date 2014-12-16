@@ -2,7 +2,7 @@
 
 > An assault on all senses
 
-(https://obscure-headland-1740.herokuapp.com/)
+https://devsofeda.herokuapp.com
 
 ### Team Members
 * Anthony Mace

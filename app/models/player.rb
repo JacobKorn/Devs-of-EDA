@@ -12,6 +12,23 @@ class Player < ActiveRecord::Base
   	player.save
   end
 
+  def roll_dice
+    self.dice_roll = Dice.roll
+    self.clicks_left = self.dice_roll
+    self.save
+    return self.dice_roll
+  end
+
+  def decrement_clicks_left
+    self.clicks_left -= 1
+    self.save
+    return self.clicks_left
+  end
+
+  def clicks_left?
+    true if self.clicks_left > 0
+  end
+
   def conduct_ee_session
     if has_resources?
       decrement_resources

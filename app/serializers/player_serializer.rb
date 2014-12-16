@@ -11,6 +11,7 @@ class PlayerSerializer < ActiveModel::Serializer
 
   def resources
   	{
+      "dice_roll"      => object.dice_roll,
 	  	"fish_and_chips" => object.fish_and_chips,
 			"coffee" => object.coffee,
 			"haagen" => object.haagen,

@@ -60,7 +60,7 @@ RSpec.describe Player, :type => :model do
   end
 
   describe '#conduct_ee_session' do
-    let(:player) { Player.new(name: 'Steve', sleep: 1, coffee: 1, pizza: 1, haagen: 1)}
+    let(:player) { Player.new(name: 'Steve', board_id: 1, fish_and_chips: 1, sleep: 1, coffee: 1, pizza: 1, haagen: 1)}
       
       before do
         player.conduct_ee_session
@@ -72,7 +72,7 @@ RSpec.describe Player, :type => :model do
   end
 
   describe '#decrement_resources' do
-    let(:player) { Player.new(name: 'Steve', sleep: 1, coffee: 1, pizza: 1, haagen: 1)}
+    let(:player) { Player.new(name: 'Steve', board_id: 1, fish_and_chips: 1, sleep: 1, coffee: 1, pizza: 1, haagen: 1)}
       
       before do
         player.decrement_resources

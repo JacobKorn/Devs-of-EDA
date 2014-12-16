@@ -2,18 +2,28 @@ class TilesController < ApplicationController
 
 	def tile_clicked
 		coords = params[:tileClicked]["tileId"].delete!("[]").split(',').map(&:to_i)
-		board_id = params[:tileClicked]["boardId"]
-		p "------------------------------CLICKED A TILE----"
-		@tile = Tile.where(board_id: board_id, x: coords[0], y: coords[1]).first
+		@board = Board.find(params[:tileClicked]["boardId"])
+		player = @board.current_player
+		players = @board.sorted_players
 
-		player = Board.current_player(board_id)
-		p player
+		@tile = Tile.where(board_id: @board.id, x: coords[0], y: coords[1]).first
+
 		tile_type = @tile.tile_type
 
-		player.increment_resource(player, tile_type) unless tile_type == "desert"
+		p "------------------------------CLICKED A TILE----"
+		p player.dice_roll
+		p player.clicks_left
 
+		if player.clicks_left?
+			player.increment_resource(player, tile_type) unless tile_type == "desert"
+			player.decrement_clicks_left
+		else
+			p "++++=====<<<<<<< WWWAAHHHHHH!!"
+			p "---NO CLICKS LEFT"
+		end
+		
 		respond_to do |format|
-			format.json { render json: player}
+			format.json { render json: players }
 		end
 	end
 

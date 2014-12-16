@@ -1,23 +1,6 @@
 class BoardSerializer < ActiveModel::Serializer
-  attributes :id, :tiles, :player
+  attributes :id, :tiles, :players
   has_many :tiles
-
-  def player
-  	player = Board.current_player(object.id)
-
-  	{
-  		"resources" => {
-		  	"fish_and_chips" => player.fish_and_chips,
-        "coffee" => player.coffee,
-        "haagen" => player.haagen,
-        "pizza" => player.pizza,
-        "sleep" => player.sleep,
-        "ee_session" => player.ee_session,
-        "victory_points" => player.victory_points
-  		}
-  	}
+  has_many :players
 
   end
-
-
-end
