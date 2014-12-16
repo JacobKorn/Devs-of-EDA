@@ -3,11 +3,12 @@ var Board = function(){
 	this.serverTiles;
 	this.hexagons = [];
 	this.boardId;
-
+	this.resources;
 };
 
 Board.prototype = {
 	saveTiles: function(data) {
+		this.serverJson = data;
 		this.serverTiles = data.board.tiles;
 		this.boardId = data.board.id;
 	},
@@ -15,6 +16,13 @@ Board.prototype = {
 		return $.ajax({
 			type: "POST",
 			url: "/boards.json",
+		})
+	},
+
+	loadServerTiles: function(board){
+		return $.ajax({
+			type: "GET",
+			url: "/boards/"+ board +".json",
 		})
 	},
 
@@ -43,6 +51,12 @@ Board.prototype = {
 			data: sending,
 			success: function(data) {
 			} 
+		})
+	},
+	conductEeSession: function(event) {
+		return $.ajax({
+			type: "PUT",
+			url: "/players/" + this.boardId + "/conduct_ee_session.json"
 		})
 	}
 };

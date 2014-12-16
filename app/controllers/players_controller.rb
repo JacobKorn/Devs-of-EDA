@@ -1,7 +1,8 @@
 class PlayersController < ApplicationController
 
 	def conduct_ee_session
-		player = Player.find(params[:id])
+		# player = Board.find(params[:board_id])
+		player = Board.current_player(params[:board_id])
 		if player.conduct_ee_session
 			render json: player
 		else 

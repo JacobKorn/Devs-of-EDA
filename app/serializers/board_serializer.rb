@@ -11,7 +11,8 @@ class BoardSerializer < ActiveModel::Serializer
         "coffee" => player.coffee,
         "haagen" => player.haagen,
         "pizza" => player.pizza,
-        "sleep" => player.sleep
+        "sleep" => player.sleep,
+        "ee_session" => player.ee_session
   		}
   	}
 

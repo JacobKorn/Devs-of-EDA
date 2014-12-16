@@ -1,5 +1,6 @@
 var View = function(controller) {
 	this.controller = controller;
+	
 };
 
 
@@ -14,10 +15,18 @@ View.prototype = {
 			$hex.css('cursor', 'pointer').on('click', function(event) {
 				self.view.controller.logClick(event);
 			})
+		})	
+	},
+	addEeClickEvent: function() {
+		console.log("ee click event ---", this)
+		var self = this
+		console.log($('#ee_session')[0])
+		$('#scoreboard').on('click', $('#ee_session'), function(event) {
+			console.log("CLICKED ---", self)
+			self.controller.conductEeSession(event);
 		})
 	},
 	updateResources: function(resources) {
-		console.log("resources------",resources)
 		var $fishContents = $("#fish_and_chips").contents();
 		var $sleepContents = $("#sleep").contents();
 		var $coffeeContents = $("#coffee").contents();
@@ -30,5 +39,6 @@ View.prototype = {
 		$coffeeContents.replaceWith(resources.coffee);
 		$haagenContents.replaceWith(resources.haagen);
 		$pizzaContents.replaceWith(resources.pizza);
+		$ee_sessionContents.replaceWith(resources.ee_session);
 	}
 };
