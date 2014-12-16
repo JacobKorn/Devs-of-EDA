@@ -9,23 +9,23 @@ RSpec.describe Player, :type => :model do
     end
 
     it "should give Player starting wood balance of 0" do
-      expect(player.wood). to eq(0)
+      expect(player.fish_and_chips). to eq(0)
     end
 
     it "should give Player starting sheep balance of 0" do
-      expect(player.sheep). to eq(0)
+      expect(player.coffee). to eq(0)
     end
 
     it "should give Player starting ore balance of 0" do
-      expect(player.ore). to eq(0)
+      expect(player.haagen). to eq(0)
     end
 
     it "should give Player starting grain balance of 0" do
-      expect(player.grain). to eq(0)
+      expect(player.pizza). to eq(0)
     end
 
     it "should give Player starting brick balance of 0" do
-      expect(player.brick). to eq(0)
+      expect(player.sleep). to eq(0)
     end
 
     it "should give Player starting victory points of 0" do

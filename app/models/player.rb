@@ -7,14 +7,13 @@ class Player < ActiveRecord::Base
   end
 
   def increment_resource(player, tile_type)
+<<<<<<< HEAD
     p "---PLAYER"
+=======
+>>>>>>> master
   	resource_type = Board::TILE_RESOURCE[tile_type]
-  	p "--- before increment"
-  	p player[resource_type]
   	player[resource_type] += 1
   	player.save
-  	p "--- after increment"
-  	p player[resource_type]
   end
 
   def conduct_ee_session(player)

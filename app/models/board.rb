@@ -13,19 +13,19 @@ class Board	< ActiveRecord::Base
 	has_many :players
 
 	TILE_RESOURCE = {
-		"forest"     => :wood,
-		"farm"       => :sheep,
-		"mountain"   => :ore,
-		"wheatfield" => :grain,
-		"clay"			 => :brick
+		"fish_and_chip_shop"     => :fish_and_chips,
+		"coffee_shop"       => :coffee,
+		"liquor_shop"   => :haagen,
+		"pizza_shop" => :pizza,
+		"bed"			 => :sleep
 	}
 
 	def populate
 		chit_numbers = [2, 3, 3, 4, 4, 5, 5, 6, 6, 8, 8, 9, 9, 10, 10, 11, 11, 12].shuffle
 		insert_number = rand(19)
 		chit_numbers.insert(insert_number, 7)
-		tile_types = ["forest", "forest", "forest", "forest", "farm", "farm", "farm", "farm", "mountain", "mountain", "mountain", "wheatfield", "wheatfield", "wheatfield", "wheatfield", "clay", "clay", "clay"].shuffle
-		tile_types.insert(insert_number, "desert")
+		tile_types = ["fish_and_chip_shop", "fish_and_chip_shop", "fish_and_chip_shop", "fish_and_chip_shop", "coffee_shop", "coffee_shop", "coffee_shop", "coffee_shop", "liquor_shop", "liquor_shop", "liquor_shop", "pizza_shop", "pizza_shop", "pizza_shop", "pizza_shop", "bed", "bed", "bed"].shuffle
+		tile_types.insert(insert_number, "undefined")
 		TILE_COORDS.each do |x, y_group|
 			y_group.each do |y|
 			tiles << Tile.create(x: x, y: y, number: chit_numbers.pop, tile_type: tile_types.pop)

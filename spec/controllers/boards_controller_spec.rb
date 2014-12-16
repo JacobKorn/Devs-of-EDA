@@ -1,7 +1,7 @@
 require 'rails_helper'
 require 'faker'
 
-RSpec.describe BoardController, :type => :controller do
+RSpec.describe BoardsController, :type => :controller do
 
   describe "player creation" do
 
