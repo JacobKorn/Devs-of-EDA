@@ -21,7 +21,7 @@ class TilesController < ApplicationController
 			p "++++=====<<<<<<< WWWAAHHHHHH!!"
 			p "---NO CLICKS LEFT"
 		end
-		
+
 		respond_to do |format|
 			format.json { render json: players }
 		end

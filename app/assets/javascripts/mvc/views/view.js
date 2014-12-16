@@ -1,6 +1,6 @@
 var View = function(controller) {
 	this.controller = controller;
-	
+
 };
 
 
@@ -8,6 +8,7 @@ View.prototype = {
 	renderBoard: function() {
 		two.update();
 	},
+	// explore event delegation, prevent bubbling
 	addClickEvents: function() {
 		var self = this
 		this.board.hexagons.forEach(function(hexagon) {
@@ -15,7 +16,7 @@ View.prototype = {
 			$hex.css('cursor', 'pointer').on('click', function(event) {
 				self.view.controller.logClick(event);
 			})
-		})	
+		})
 	},
 	addEeClickEvent: function() {
 		var self = this
@@ -27,7 +28,7 @@ View.prototype = {
 		var self = this
 		var endTurnButton = $("#end-turn")
 		endTurnButton.on('click', function(event) {
-			console.log("clicked")	
+			console.log("clicked")
 			self.controller.endTurn(event);
 		})
 	},
