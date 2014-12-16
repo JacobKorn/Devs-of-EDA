@@ -12,5 +12,11 @@ class Player < ActiveRecord::Base
   	player.save
   end
 
+  def roll_dice
+    self.dice_roll = Dice.roll
+    self.save
+    return self.dice_roll
+  end
+
 end
 

@@ -1,4 +1,3 @@
 class PlayersController < ApplicationController
 
-
 end

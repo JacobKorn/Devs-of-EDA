@@ -3,7 +3,10 @@ var Board = function(){
 	this.serverTiles;
 	this.hexagons = [];
 	this.boardId;
-	this.resources;
+	this.player1;
+	this.player2;
+	this.player3;
+	this.player4;
 };
 
 Board.prototype = {
@@ -31,7 +34,14 @@ Board.prototype = {
 		})
 	},
 	updateResourcesOnLoad: function() {
-		this.resources = this.serverJson.board.player.resources
+		this.player1 = this.serverJson.board.players[0]
+		this.player2 = this.serverJson.board.players[1]
+		this.player3 = this.serverJson.board.players[2]
+		this.player4 = this.serverJson.board.players[3]
+		console.log(this.player1)
+		console.log(this.player2)
+		console.log(this.player3)
+		console.log(this.player4)
 	},
 	updateResources: function(data) {
 		this.resources = data.player.resources

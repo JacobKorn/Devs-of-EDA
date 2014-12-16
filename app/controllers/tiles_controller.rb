@@ -8,7 +8,6 @@ class TilesController < ApplicationController
 		@tile = Tile.where(board_id: @board.id, x: coords[0], y: coords[1]).first
 
 		player = @board.current_player
-		p player
 		tile_type = @tile.tile_type
 
 		player.increment_resource(player, tile_type) unless tile_type == "desert"

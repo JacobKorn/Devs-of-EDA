@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Board do
+RSpec.describe Board, :type => :model do
 
   it { should have_many :players}
 
@@ -24,7 +24,7 @@ RSpec.describe Board do
       expect(@board.players.count).to eq(4)
     end
 
-end
+	end
 
 	describe "board player interactions" do
     let(:board) {Board.create}
@@ -56,6 +56,8 @@ end
 			
 			expect(board.current_player_id).to eq(p1.id)
 		end
-
 	end
+
+	
+
 end

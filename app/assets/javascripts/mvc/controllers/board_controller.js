@@ -17,7 +17,6 @@ BoardController.prototype = {
 			.done(this.board.makeHexagons.bind(this.board))
 			.done(this.view.renderBoard)
 			.done(this.view.addClickEvents.bind(this))
-			.done(console.log(this))
 			.done(this.board.updateResourcesOnLoad.bind(this.board))			
 			.done(this.updateResources.bind(this))
 	},
@@ -38,6 +37,6 @@ BoardController.prototype = {
 			.done(this.updateResources.bind(this));
 	},
 	updateResources: function() {
-		this.view.updateResources(this.board.resources);
+		this.view.updateResources(this.board);
 	}
 };

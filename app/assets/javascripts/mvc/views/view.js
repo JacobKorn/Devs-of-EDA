@@ -16,18 +16,26 @@ View.prototype = {
 			})
 		})
 	},
-	updateResources: function(resources) {
-		console.log("resources------",resources)
-		var $fishContents = $("#fish_and_chips").contents();
-		var $sleepContents = $("#sleep").contents();
-		var $coffeeContents = $("#coffee").contents();
-		var $haagenContents = $("#haagen").contents();
-		var $pizzaContents = $("#pizza").contents();
-
-		$sleepContents.replaceWith(resources.sleep);
-		$fishContents.replaceWith(resources.fish_and_chips);
-		$coffeeContents.replaceWith(resources.coffee);
-		$haagenContents.replaceWith(resources.haagen);
-		$pizzaContents.replaceWith(resources.pizza);
+	updateResources: function(board) {
+		var player1 = [ "#player-1", board.player1];
+		var player2 = ["#player-2", board.player2]
+		var player3 = ["#player-3", board.player3];
+		var player4 = ["#player-4", board.player4];
+		this.updatePlayerResources(player1);
+		this.updatePlayerResources(player2);
+		this.updatePlayerResources(player3);
+		this.updatePlayerResources(player4);
+	},
+	updatePlayerResources: function(player) {
+		var $fishContents = $(player[0] + " #fish_and_chips").contents();
+		var $sleepContents = $(player[0] + " #sleep").contents();
+		var $coffeeContents = $(player[0] + " #coffee").contents();
+		var $haagenContents = $(player[0] + " #haagen").contents();
+		var $pizzaContents = $( player[0] + " #pizza").contents();
+		$sleepContents.replaceWith(player[1].resources.sleep);
+		$fishContents.replaceWith(player[1].resources.fish_and_chips);
+		$coffeeContents.replaceWith(player[1].resources.coffee);
+		$haagenContents.replaceWith(player[1].resources.haagen);
+		$pizzaContents.replaceWith(player[1].resources.pizza);
 	}
 };

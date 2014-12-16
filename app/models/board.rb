@@ -25,6 +25,7 @@ class Board	< ActiveRecord::Base
 		self.populate
 		self.create_players
 		self.set_first_player
+		self.set_starting_roll
 	end
 
 	def populate
@@ -46,9 +47,17 @@ class Board	< ActiveRecord::Base
 		end
 	end
 
+	def starting_player
+		players.first
+	end
+
 	def set_first_player
-		self.current_player_id = players.first.id
+		self.current_player_id = starting_player.id
 		self.save
+	end
+	
+	def set_starting_roll
+		starting_player.roll_dice
 	end
 
 	def set_current_player(index)
@@ -69,6 +78,5 @@ class Board	< ActiveRecord::Base
 	def current_player
 		@player = Player.find(current_player_id)
 	end
-
 
 end
