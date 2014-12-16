@@ -31,14 +31,7 @@ RSpec.describe Board, :type => :model do
     let(:players) {board.players}
 
 		it "increments player to Player 2" do
-			p "-------------------"
-			p board.current_player
-			p board.current_player_id
-			p players
 			board.increment_player
-			p "----INCREMENT----"
-			p board.current_player
-			p board.current_player_id
 
 			expect(board.current_player_id).to eq(players[1].id)
 		end

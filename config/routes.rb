@@ -8,6 +8,8 @@ root 'boards#index'
 
   post 'tiles/click' => 'tiles#tile_clicked'
 
+  put 'turns/:board_id/end_turn' => 'turns#end_turn'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

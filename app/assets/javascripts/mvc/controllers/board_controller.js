@@ -1,6 +1,8 @@
 var BoardController = function() {
 	this.board = new Board();
 	this.view = new View(this);
+
+	this.view.addEndTurnClickEvents();
 };
 
 BoardController.prototype = {
@@ -20,16 +22,6 @@ BoardController.prototype = {
 			.done(this.board.updateResourcesOnLoad.bind(this.board))			
 			.done(this.updateResources.bind(this))
 	},
-	// start: function() {
-	// 	this.renderBoard()
-	// },
-	// renderBoard: function(){
-	// 	this.board.getServerTiles()
-	// 		.done(this.board.saveTiles.bind(this.board))
-	// 		.done(this.board.makeHexagons.bind(this.board))
-	// 		.done(this.view.renderBoard)
-	// 		.done(this.view.addClickEvents.bind(this))
-	// },
 	logClick: function(event) {
 		var controller = this
 		this.board.logClick(event)
@@ -38,5 +30,8 @@ BoardController.prototype = {
 	},
 	updateResources: function() {
 		this.view.updateResources(this.board);
+	},
+	endTurn: function(event) {
+		this.board.endTurn();		
 	}
 };

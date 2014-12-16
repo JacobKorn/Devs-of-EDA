@@ -14,11 +14,11 @@ class Board	< ActiveRecord::Base
 	has_many :players
 
 	TILE_RESOURCE = {
-		"fish_and_chip_shop"     => :fish_and_chips,
-		"coffee_shop"       => :coffee,
-		"liquor_shop"   => :haagen,
-		"pizza_shop" => :pizza,
-		"bed"			 => :sleep
+		"fish_and_chip_shop" 	=> :fish_and_chips,
+		"coffee_shop"       	=> :coffee,
+		"liquor_shop"   			=> :haagen,
+		"pizza_shop" 					=> :pizza,
+		"bed"			 						=> :sleep
 	}
 
 	def bootstrap
@@ -68,6 +68,12 @@ class Board	< ActiveRecord::Base
 		self.current_player_id = sorted_players[index].id
 		self.save
 	end
+
+	def new_turn
+		increment_player
+		current_player.roll_dice
+	end
+
 
 	def increment_player
 		player_count = sorted_players.length - 1
