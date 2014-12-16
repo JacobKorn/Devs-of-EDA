@@ -47,8 +47,12 @@ class Board	< ActiveRecord::Base
 		end
 	end
 
+	def sorted_players
+		players.sort_by { |player| player.id }
+	end
+
 	def starting_player
-		players.first
+		sorted_players.first
 	end
 
 	def set_first_player
@@ -61,13 +65,13 @@ class Board	< ActiveRecord::Base
 	end
 
 	def set_current_player(index)
-		self.current_player_id = players[index].id
+		self.current_player_id = sorted_players[index].id
 		self.save
 	end
 
 	def increment_player
-		player_count = players.length - 1
-		current_player_index = players.index(current_player)
+		player_count = sorted_players.length - 1
+		current_player_index = sorted_players.index(current_player)
 		if current_player_index < player_count
 			set_current_player(current_player_index + 1)
 		else

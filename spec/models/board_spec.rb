@@ -28,12 +28,19 @@ RSpec.describe Board, :type => :model do
 
 	describe "board player interactions" do
     let(:board) {Board.create}
+    let(:players) {board.players}
 
 		it "increments player to Player 2" do
-			p2 = board.players[1]
+			p "-------------------"
+			p board.current_player
+			p board.current_player_id
+			p players
 			board.increment_player
+			p "----INCREMENT----"
+			p board.current_player
+			p board.current_player_id
 
-			expect(board.current_player_id).to eq(p2.id)
+			expect(board.current_player_id).to eq(players[1].id)
 		end
 
 		it "increments player to Player 3" do
