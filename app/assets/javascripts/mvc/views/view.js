@@ -1,5 +1,6 @@
 var View = function(controller) {
 	this.controller = controller;
+	
 };
 
 
@@ -14,6 +15,12 @@ View.prototype = {
 			$hex.css('cursor', 'pointer').on('click', function(event) {
 				self.view.controller.logClick(event);
 			})
+		})	
+	},
+	addEeClickEvent: function() {
+		var self = this
+		$('#ee_session').on('click', function(event) {
+			self.controller.conductEeSession(event);
 		})
 	},
 	addEndTurnClickEvents: function() {
@@ -29,6 +36,9 @@ View.prototype = {
 		var player2 = ["#player-2", board.player2]
 		var player3 = ["#player-3", board.player3];
 		var player4 = ["#player-4", board.player4];
+
+		console.log("VIEW BOARD----", board)
+
 		this.updatePlayerResources(player1);
 		this.updatePlayerResources(player2);
 		this.updatePlayerResources(player3);
@@ -40,12 +50,18 @@ View.prototype = {
 		var $sleepContents = $(player[0] + " #sleep").contents();
 		var $coffeeContents = $(player[0] + " #coffee").contents();
 		var $haagenContents = $(player[0] + " #haagen").contents();
-		var $pizzaContents = $( player[0] + " #pizza").contents();
+		var $pizzaContents = $(player[0] + " #pizza").contents();
+		var $ee_sessionContents = $(player[0] + " #ee_session").contents();
+		var $victory_pointsContents = $(player[0] + " #victory_points").contents();
+
+
 		$nameContents.replaceWith(player[1].player_name);
 		$sleepContents.replaceWith(player[1].resources.sleep);
 		$fishContents.replaceWith(player[1].resources.fish_and_chips);
 		$coffeeContents.replaceWith(player[1].resources.coffee);
 		$haagenContents.replaceWith(player[1].resources.haagen);
 		$pizzaContents.replaceWith(player[1].resources.pizza);
+		$ee_sessionContents.replaceWith(player[1].resources.ee_session);
+		$victory_pointsContents.replaceWith(player[1].resources.victory_points);
 	}
 };

@@ -2,7 +2,9 @@ var BoardController = function() {
 	this.board = new Board();
 	this.view = new View(this);
 
+
 	this.view.addEndTurnClickEvents();
+	this.view.addEeClickEvent();
 };
 
 BoardController.prototype = {
@@ -22,16 +24,25 @@ BoardController.prototype = {
 			.done(this.board.updateResourcesOnLoad.bind(this.board))			
 			.done(this.updateResources.bind(this))
 	},
+
 	logClick: function(event) {
 		var controller = this
 		this.board.logClick(event)
-			.done(this.board.updateResources.bind(this.board))
+			.done(this.board.updateResourcesLogClick.bind(this.board))
 			.done(this.updateResources.bind(this));
+	},
+	endTurn: function(event) {
+		this.board.endTurn()
+			.done(this.board.updateResourcesTurns.bind(this.board));		
+		console.log("ENDTURN-----", this.board);
+		this.view.updateResources(this.board);
+	},
+	conductEeSession: function(event) {
+		this.board.conductEeSession(event)
+			.done(this.board.updateResourcesEeSession.bind(this.board))
+			.done(this.updateResources.bind(this))
 	},
 	updateResources: function() {
 		this.view.updateResources(this.board);
 	},
-	endTurn: function(event) {
-		this.board.endTurn();		
-	}
 };
