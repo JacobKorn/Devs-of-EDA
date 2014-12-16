@@ -20,13 +20,13 @@ View.prototype = {
 	},
 	addEeClickEvent: function() {
 		var self = this
-		$('#ee_session').on('click', function(event) {
+		$('#right').on('click', function(event) {
 			self.controller.conductEeSession(event);
 		})
 	},
 	addEndTurnClickEvents: function() {
 		var self = this
-		var endTurnButton = $("#end-turn")
+		var endTurnButton = $("#right")
 		endTurnButton.on('click', function(event) {
 			console.log("clicked")
 			self.controller.endTurn(event);
