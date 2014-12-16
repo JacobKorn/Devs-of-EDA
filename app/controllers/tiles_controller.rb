@@ -2,16 +2,16 @@ class TilesController < ApplicationController
 
 	def tile_clicked
 		coords = params[:tileClicked]["tileId"].delete!("[]").split(',').map(&:to_i)
-		board_id = params[:tileClicked]["boardId"]
+		@board = Board.find(params[:tileClicked]["boardId"])
 		p "------------------------------CLICKED A TILE----"
-		@tile = Tile.where(board_id: board_id, x: coords[0], y: coords[1]).first
+		p @board
+		@tile = Tile.where(board_id: @board.id, x: coords[0], y: coords[1]).first
 
-		player = Board.current_player(board_id)
+		player = @board.current_player
 		p player
 		tile_type = @tile.tile_type
 
 		player.increment_resource(player, tile_type) unless tile_type == "desert"
-
 		respond_to do |format|
 			format.json { render json: player}
 		end

@@ -3,7 +3,7 @@ class BoardSerializer < ActiveModel::Serializer
   has_many :tiles
 
   def player
-  	player = Board.current_player(object.id)
+  	player = object.current_player
 
   	{
   		"resources" => {
