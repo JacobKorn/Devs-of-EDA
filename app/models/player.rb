@@ -16,6 +16,7 @@ class Player < ActiveRecord::Base
     if has_resources?
       decrement_resources
       increment_ee_session
+      increment_victory_points
       save
     end
   end
@@ -25,9 +26,14 @@ class Player < ActiveRecord::Base
     decrement_coffee
     decrement_pizza
     decrement_haagen
+    decrement_fish_and_chips
   end
 
 private
+
+  def increment_victory_points
+    self.victory_points += 1
+  end
 
   def increment_ee_session
     self.ee_session += 1
@@ -49,8 +55,12 @@ private
     self.haagen -= 1 if haagen > 0
   end
 
+  def decrement_fish_and_chips
+    self.fish_and_chips -= 1 if fish_and_chips > 0
+  end
+
   def has_resources?
-    sleep >= 1 && coffee >= 1 && pizza >= 1 && haagen >= 1
+    sleep >= 1 && coffee >= 1 && pizza >= 1 && haagen >= 1 && fish_and_chips >= 1
   end
 
 end

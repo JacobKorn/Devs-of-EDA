@@ -27,12 +27,14 @@ View.prototype = {
 		})
 	},
 	updateResources: function(resources) {
+		console.log("yep right here", resources)
 		var $fishContents = $("#fish_and_chips").contents();
 		var $sleepContents = $("#sleep").contents();
 		var $coffeeContents = $("#coffee").contents();
 		var $haagenContents = $("#haagen").contents();
 		var $pizzaContents = $("#pizza").contents();
 		var $ee_sessionContents = $("#ee_session").contents();
+		var $victory_pointsContents = $("#victory_points").contents();
 
 		$sleepContents.replaceWith(resources.sleep);
 		$fishContents.replaceWith(resources.fish_and_chips);
@@ -40,5 +42,6 @@ View.prototype = {
 		$haagenContents.replaceWith(resources.haagen);
 		$pizzaContents.replaceWith(resources.pizza);
 		$ee_sessionContents.replaceWith(resources.ee_session);
+		$victory_pointsContents.replaceWith(resources.victory_points);
 	}
 };
