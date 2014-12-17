@@ -4,7 +4,6 @@ class TilesController < ApplicationController
 		coords = params[:tileClicked]["tileId"].delete!("[]").split(',').map(&:to_i)
 		@board = Board.find(params[:tileClicked]["boardId"])
 		player = @board.current_player
-		players = @board.sorted_players
 
 		@tile = Tile.where(board_id: @board.id, x: coords[0], y: coords[1]).first
 
@@ -22,6 +21,7 @@ class TilesController < ApplicationController
 			p "---NO CLICKS LEFT"
 		end
 
+		players = @board.sorted_players
 		respond_to do |format|
 			format.json { render json: players }
 		end

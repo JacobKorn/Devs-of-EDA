@@ -1,5 +1,97 @@
+
 body {
   font-family: 'Roboto', sans-serif;
+}
+
+
+.container {
+	background-image: url(<%= asset_path 'sea.jpg' %>);
+	width:100%;
+	height: 100vh;
+	padding: 0 30px 0 0;
+}
+
+#left {
+	width: 70%;
+	float: left;
+	border: 1px solid red;
+}
+
+#right {
+	width: 25%;
+	float: right;
+	border: 1px solid red;
+}
+
+
+#scoreboard {
+	width: 75px;
+	height: 20px;
+	padding: 5px;
+	position: absolute;
+	text-align: center;
+}
+.clicks_left {
+	background-image: url(<%= asset_path 'dice.jpg' %>);
+	line-height: 60px;
+	font-size: 50px;
+	max-height: 85px;
+	border-style: solid;
+	border-color: black;
+	background-color: black;
+	height: 80px;
+	color: purple;
+}
+.resource {
+	font-size: 50px;
+	line-height: 84px;
+	border-style: solid;
+	border-color: black;
+}
+
+#player_name {
+	margin-top: 200px;
+	height: 80px;
+	background-image: url(<%= asset_path 'name.jpg' %>);
+	line-height: 40px;
+	border-style: solid;
+	border-color: black;
+}
+
+#victory_points {
+	height: 80px;
+	background-image: url(<%= asset_path 'josh.png' %>);
+	border-style: solid;
+	border-color: black;
+}
+
+#fish_and_chips {
+	color: #C3C98B;
+	height: 80px;
+	background-image: url(<%= asset_path 'fishchips.jpg' %>);
+	background-size: 80px 60px;
+	background-repeat: no-repeat;
+}
+
+#sleep {
+	height: 80px;
+	color: #F5D983;
+	background-image: url(<%= asset_path 'sleep.jpg' %>);
+	background-size: 80px 60px;
+}
+
+#coffee {
+	height: 80px;
+	color: #304506;
+	background-image: url(<%= asset_path 'coffee.jpg' %>);
+	background-size: 80px 60px;
+}
+
+#haagen {
+	color: #D7DDDF;
+	height: 80px;
+	background-image: url(<%= asset_path 'haagen.png' %>);
+	background-size: 80px 60px;
 }
 
 .splash {
@@ -13,6 +105,11 @@ h1 {
   font-size: 60px;
 }
 
+.player {
+	position: absolute;
+	margin-top: 100px;
+}
+
 h2 {
   font-size: 30px;
 }
@@ -22,5 +119,34 @@ h2 {
 	font-size: 60px;
 	width: 30%;
 	background-color: #D92F0D;
+}
+
+#end-turn {
+	width: 270px;
+	height: 25px;
+	background: salmon;
+	cursor: pointer;
+	z-index: 100;
+	display: block;
+}
+
+#end-turn:hover {
+	background-color: orange;
+}
+
+#player-1 {
+	padding-left: 75px;
+}
+
+#player-2 {
+	padding-left: 150px;
+}
+
+#player-3 {
+	padding-left: 225px;
+}
+
+#player-4 {
+	padding-left: 300px;
 }
 

@@ -14,8 +14,7 @@
  *= require_self
  *= require foundation_and_overrides
 */
-@import url(http://fonts.googleapis.com/css?family=Roboto);
-@import "foundation/functions";
 
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
 
