@@ -23,8 +23,15 @@ BoardController.prototype = {
 			.done(this.updateResources.bind(this))
 	},
 	initializeClickEvents: function() {
-		this.view.addEndTurnClickEvents();
-		this.view.addEeClickEvent();
+		// this.view.addEndTurnClickEvents();
+		// this.view.addEeClickEvent();
+		var eeSelector = '#ee_session';
+		var eeCallback = this.conductEeSession.bind(this);
+		this.view.addClickEvent( eeSelector, eeCallback );
+
+		var endTurnSelector = '#end-turn';
+		var endTurnCallback = this.endTurn.bind(this);
+		this.view.addClickEvent( endTurnSelector, endTurnCallback );
 	},
 
 	logClick: function(event) {
@@ -36,7 +43,6 @@ BoardController.prototype = {
 	endTurn: function(event) {
 		this.board.endTurn()
 			.done(this.board.updateResourcesTurns.bind(this.board));
-		console.log("ENDTURN-----", this.board);
 		this.view.updateResources(this.board);
 	},
 	conductEeSession: function(event) {

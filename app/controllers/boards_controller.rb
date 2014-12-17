@@ -2,7 +2,7 @@ require 'faker'
 
 class BoardsController < ApplicationController
 
-	respond_to :json
+
 
 	def index
 		@boards = Board.all

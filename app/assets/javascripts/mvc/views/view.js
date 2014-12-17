@@ -18,17 +18,19 @@ View.prototype = {
 			})
 		})
 	},
-	addEeClickEvent: function() {
-		var self = this
-		$('#right').on('click', function(event) {
-			self.controller.conductEeSession(event);
+	addClickEvent: function(selector, callback) {
+		console.log("before selector", selector, callback)
+		$(selector).on('click', function(event) {
+			event.preventDefault();
+			console.log("clicked -->>", selector);
+			callback(event);
 		})
 	},
 	addEndTurnClickEvents: function() {
 		var self = this
-		var endTurnButton = $("#right")
-		endTurnButton.on('click', function(event) {
-			console.log("clicked")
+		$('#end-turn').on('click', function(event) {
+			event.stopPropagation();
+			console.log("end turn clicked")
 			self.controller.endTurn(event);
 		})
 	},
@@ -38,7 +40,6 @@ View.prototype = {
 		var player3 = ["#player-3", board.player3];
 		var player4 = ["#player-4", board.player4];
 
-		console.log("VIEW BOARD----", board)
 
 		this.updatePlayerResources(player1);
 		this.updatePlayerResources(player2);
