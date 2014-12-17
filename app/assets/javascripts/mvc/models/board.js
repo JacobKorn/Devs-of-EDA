@@ -14,7 +14,6 @@ Board.prototype = {
 
 	saveTiles: function(data) {
 		this.serverJson = data;
-		console.log("DATA--->", data)
 		this.serverTiles = data.board.tiles;
 		this.boardId = data.board.id;
 	},
@@ -60,24 +59,18 @@ Board.prototype = {
 		})
 	},
 	updateResourcesLogClick: function(data) {
-		console.log("RESOURCE DATA----->>>", data)
-		console.log("RESOURCE DATA----->>>", this.players)
 		this.player1 = data.tiles[0]
 		this.player2 = data.tiles[1]
 		this.player3 = data.tiles[2]
 		this.player4 = data.tiles[3]
 	},
 		updateResourcesEeSession: function(data) {
-		console.log("RESOURCE DATA----->>>", data)
-		console.log("RESOURCE DATA----->>>", this.players)
 		this.player1 = data.players[0]
 		this.player2 = data.players[1]
 		this.player3 = data.players[2]
 		this.player4 = data.players[3]
 	},
 	updateResourcesTurns: function(data) {
-		console.log("RESOURCE DATA----->>>", data)
-		console.log("RESOURCE DATA----->>>", this.players)
 		this.player1 = data.turns[0]
 		this.player2 = data.turns[1]
 		this.player3 = data.turns[2]
