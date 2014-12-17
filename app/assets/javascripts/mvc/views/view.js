@@ -37,24 +37,24 @@ View.prototype = {
 	},
 	updatePlayerResources: function(player) {
 		console.log(player)
-		var $clicksLeftContents = $(player[0] + " #clicks_left").contents();
-		var $nameContents = $(player[0] + " #player_name").contents();
-		var $fishContents = $(player[0] + " #fish_and_chips").contents();
-		var $sleepContents = $(player[0] + " #sleep").contents();
-		var $coffeeContents = $(player[0] + " #coffee").contents();
-		var $haagenContents = $(player[0] + " #haagen").contents();
-		var $pizzaContents = $(player[0] + " #pizza").contents();
-		var $ee_sessionContents = $(player[0] + " #ee_session").contents();
-		var $victory_pointsContents = $(player[0] + " #victory_points").contents();
+		var $clicksLeft = $(player[0] + " #clicks_left");
+		var $name = $(player[0] + " #player_name h2");
+		var $fish = $(player[0] + " #fish_and_chips");
+		var $sleep = $(player[0] + " #sleep");
+		var $coffee = $(player[0] + " #coffee");
+		var $haagen = $(player[0] + " #haagen");
+		var $pizza = $(player[0] + " #pizza");
+		var $ee_session = $(player[0] + " #ee_session");
+		var $victory_points = $(player[0] + " #victory_points");
 
-		$clicksLeftContents.replaceWith( player[1].clicks_left );
-		$nameContents.replaceWith( player[1].player_name );
-		$sleepContents.replaceWith( player[1].resources.sleep );
-		$fishContents.replaceWith( player[1].resources.fish_and_chips );
-		$coffeeContents.replaceWith( player[1].resources.coffee );
-		$haagenContents.replaceWith( player[1].resources.haagen );
-		$pizzaContents.replaceWith( player[1].resources.pizza );
-		$ee_sessionContents.replaceWith( player[1].resources.ee_session );
-		$victory_pointsContents.replaceWith( player[1].resources.victory_points );
+		$clicksLeft.text( player[1].clicks_left );
+		$name.text( player[1].player_name );
+		$sleep.text( player[1].resources.sleep );
+		$fish.text( player[1].resources.fish_and_chips );
+		$coffee.text( player[1].resources.coffee );
+		$haagen.text( player[1].resources.haagen );
+		$pizza.text( player[1].resources.pizza );
+		$ee_session.text( player[1].resources.ee_session );
+		$victory_points.text( player[1].resources.victory_points );
 	}
 };
