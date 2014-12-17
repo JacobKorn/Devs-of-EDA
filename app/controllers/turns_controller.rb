@@ -1,7 +1,7 @@
 class TurnsController < ApplicationController
 
 
-	respond_to :json #remove
+
 
 	def end_turn
 		@board = Board.find(params[:board_id])

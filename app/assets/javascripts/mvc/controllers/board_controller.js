@@ -1,10 +1,7 @@
 var BoardController = function() {
 	this.board = new Board();
 	this.view = new View(this);
-
-	//move this to a function and call when initialized
-	this.view.addEndTurnClickEvents();
-	this.view.addEeClickEvent();
+	this.initializeClickEvents();
 };
 
 BoardController.prototype = {
@@ -25,6 +22,17 @@ BoardController.prototype = {
 			.done(this.board.updateResourcesOnLoad.bind(this.board))
 			.done(this.updateResources.bind(this))
 	},
+	initializeClickEvents: function() {
+		// this.view.addEndTurnClickEvents();
+		// this.view.addEeClickEvent();
+		var eeSelector = '#ee_session';
+		var eeCallback = this.conductEeSession.bind(this);
+		this.view.addClickEvent( eeSelector, eeCallback );
+
+		var endTurnSelector = '#end-turn';
+		var endTurnCallback = this.endTurn.bind(this);
+		this.view.addClickEvent( endTurnSelector, endTurnCallback );
+	},
 
 	logClick: function(event) {
 		var controller = this
@@ -35,7 +43,6 @@ BoardController.prototype = {
 	endTurn: function(event) {
 		this.board.endTurn()
 			.done(this.board.updateResourcesTurns.bind(this.board));
-		console.log("ENDTURN-----", this.board);
 		this.view.updateResources(this.board);
 	},
 	conductEeSession: function(event) {
