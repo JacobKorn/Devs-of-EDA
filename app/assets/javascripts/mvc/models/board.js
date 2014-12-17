@@ -66,6 +66,23 @@ Board.prototype = {
 		this.player2 = data.players[1]
 		this.player3 = data.players[2]
 		this.player4 = data.players[3]
+		this.checkWinner();
+	},
+
+	checkWinner: function() {
+		if (this.player1.is_winner) {
+			alert(this.player1.player_name + " is a winner")
+			console.log("player 1 wins")
+		}
+		else if (this.player2.is_winner) {
+			alert(this.player2.player_name + " is a winner")
+		}
+		else if (this.player3.is_winner) {
+			alert(this.player3.player_name + " is a winner")
+		}
+		else if (this.player4.is_winner) {
+			alert(this.player4.player_name + " is a winner")
+		}
 	},
 
 	
