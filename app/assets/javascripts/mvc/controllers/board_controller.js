@@ -11,6 +11,7 @@ BoardController.prototype = {
 			.done(this.board.makeHexagons.bind(this.board))
 			.done(this.view.renderBoard)
 			.done(this.view.addTileClickEvents.bind(this))
+			.done(this.updateResources.bind(this));
 	},
 	loadGame: function(board) {
 		this.board.loadServerTiles(board)
@@ -18,7 +19,6 @@ BoardController.prototype = {
 			.done(this.board.makeHexagons.bind(this.board))
 			.done(this.view.renderBoard)
 			.done(this.view.addTileClickEvents.bind(this))
-			.done(this.board.updateResourcesOnLoad.bind(this.board))
 			.done(this.updateResources.bind(this))
 	},
 	initializeClickEvents: function() {

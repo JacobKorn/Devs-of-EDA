@@ -17,8 +17,9 @@ Board.prototype = {
 		this.serverJson = data;
 		this.serverTiles = data.board.tiles;
 		this.boardId = data.board.id;
+		this.loadPlayers();
 	},
-	updateResourcesOnLoad: function() {
+	loadPlayers: function() {
 		this.player1 = this.serverJson.board.players[0]
 		this.player2 = this.serverJson.board.players[1]
 		this.player3 = this.serverJson.board.players[2]
