@@ -9,7 +9,7 @@ View.prototype = {
 		two.update();
 	},
 	// explore event delegation, prevent bubbling
-	addClickEvents: function() {
+	addTileClickEvents: function() {
 		var self = this
 		this.board.hexagons.forEach(function(hexagon) {
 			var $hex = $(hexagon.canvasHexagon._renderer.elem)
@@ -24,14 +24,6 @@ View.prototype = {
 			event.preventDefault();
 			console.log("clicked -->>", selector);
 			callback(event);
-		})
-	},
-	addEndTurnClickEvents: function() {
-		var self = this
-		$('#end-turn').on('click', function(event) {
-			event.stopPropagation();
-			console.log("end turn clicked")
-			self.controller.endTurn(event);
 		})
 	},
 	updateResources: function(board) {

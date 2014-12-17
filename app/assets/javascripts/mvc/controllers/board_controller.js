@@ -11,20 +11,18 @@ BoardController.prototype = {
 			.done(this.board.saveTiles.bind(this.board))
 			.done(this.board.makeHexagons.bind(this.board))
 			.done(this.view.renderBoard)
-			.done(this.view.addClickEvents.bind(this))
+			.done(this.view.addTileClickEvents.bind(this))
 	},
 	loadGame: function(board) {
 		this.board.loadServerTiles(board)
 			.done(this.board.saveTiles.bind(this.board))
 			.done(this.board.makeHexagons.bind(this.board))
 			.done(this.view.renderBoard)
-			.done(this.view.addClickEvents.bind(this))
+			.done(this.view.addTileClickEvents.bind(this))
 			.done(this.board.updateResourcesOnLoad.bind(this.board))
 			.done(this.updateResources.bind(this))
 	},
 	initializeClickEvents: function() {
-		// this.view.addEndTurnClickEvents();
-		// this.view.addEeClickEvent();
 		var eeSelector = '#ee_session';
 		var eeCallback = this.conductEeSession.bind(this);
 		this.view.addClickEvent( eeSelector, eeCallback );
@@ -47,6 +45,7 @@ BoardController.prototype = {
 	},
 	conductEeSession: function(event) {
 		this.board.conductEeSession(event)
+			.done(console.log(this))
 			.done(this.board.updateResourcesEeSession.bind(this.board))
 			.done(this.updateResources.bind(this))
 	},
