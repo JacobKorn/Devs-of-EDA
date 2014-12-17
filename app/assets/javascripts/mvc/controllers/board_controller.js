@@ -40,12 +40,11 @@ BoardController.prototype = {
 	},
 	endTurn: function(event) {
 		this.board.endTurn()
-			.done(this.board.updateResourcesTurns.bind(this.board));
-		this.view.updateResources(this.board);
+			.done(this.board.updateResourcesTurns.bind(this.board))
+			.done(this.view.updateResources(this.board));
 	},
 	conductEeSession: function(event) {
 		this.board.conductEeSession(event)
-			.done(console.log(this))
 			.done(this.board.updateResourcesEeSession.bind(this.board))
 			.done(this.updateResources.bind(this))
 	},

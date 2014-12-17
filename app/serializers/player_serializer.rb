@@ -1,5 +1,8 @@
 class PlayerSerializer < ActiveModel::Serializer
-  attributes :player_id, :resources, :player_name
+  attributes  :player_id, 
+              :player_name,
+              :clicks_left,
+              :resources
 
   def player_id
   	object.id
@@ -11,7 +14,6 @@ class PlayerSerializer < ActiveModel::Serializer
 
   def resources
   	{
-      "dice_roll"      => object.dice_roll,
 	  	"fish_and_chips" => object.fish_and_chips,
 			"coffee" => object.coffee,
 			"haagen" => object.haagen,
