@@ -1,4 +1,8 @@
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 
 .container {
 	background-image: url(<%= asset_path 'sea.jpg' %>);
@@ -90,44 +94,31 @@
 	background-size: 80px 60px;
 }
 
-#pizza {
-	color: #6B4F04;
-	height: 80px;
-	background-image: url(<%= asset_path 'pizza.jpg' %>);
-	background-size: 80px 60px;
+.splash {
+
+  text-align: center;
+ 	position: relative;
+  top: 30%;
 }
 
-#ee_session {
-	max-height: 85px;
-	background-color: black;
-	color: white;
-	z-index: 100;
+h1 {
+  font-size: 60px;
 }
 
-#ee_count {
-	color: black;
-	height: 85px;
-	width: 90px;
-	line-height: 60px;
-	font-size: 50px;
-	background-image: url(<%= asset_path 'ee.jpg' %>);
-}
 .player {
 	position: absolute;
 	margin-top: 100px;
 }
 
-#player-1 {
+h2 {
+  font-size: 30px;
+}
 
-}
-#player-2 {
-	left: 75px;
-}
-#player-3 {
-	left: 150px;
-}
-#player-4 {
-	left: 225px;
+.button {
+	font-family: 'Roboto', sans-serif;
+	font-size: 60px;
+	width: 30%;
+	background-color: #D92F0D;
 }
 
 #end-turn {
@@ -138,10 +129,24 @@
 	z-index: 100;
 	display: block;
 }
+
 #end-turn:hover {
 	background-color: orange;
 }
 
+#player-1 {
+	padding-left: 75px;
+}
 
+#player-2 {
+	padding-left: 150px;
+}
 
+#player-3 {
+	padding-left: 225px;
+}
+
+#player-4 {
+	padding-left: 300px;
+}
 
