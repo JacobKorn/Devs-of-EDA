@@ -2,6 +2,7 @@ class PlayerSerializer < ActiveModel::Serializer
   attributes  :player_id, 
               :player_name,
               :clicks_left,
+              :is_winner,
               :resources
 
   def player_id

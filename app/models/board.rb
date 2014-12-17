@@ -47,8 +47,8 @@ class Board	< ActiveRecord::Base
 		end
 	end
 
-	def sorted_players
-		players.sort_by { |player| player.id }
+	def sorted_players(reload = false)
+		players(reload).sort_by { |player| player.id }
 	end
 
 	def starting_player
@@ -87,6 +87,15 @@ class Board	< ActiveRecord::Base
 
 	def current_player
 		@player = Player.find(current_player_id)
+	end
+
+	def winner
+		self.players.select { |player| player.is_winner == true }
+	end
+
+	def check_winner?
+		return true unless winner.blank?
+		
 	end
 
 end

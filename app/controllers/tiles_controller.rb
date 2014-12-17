@@ -13,17 +13,17 @@ class TilesController < ApplicationController
 		p player.dice_roll
 		p player.clicks_left
 
-		if player.clicks_left?
+		if player.clicks_left? && !@board.check_winner?
 			player.increment_resource(player, tile_type) unless tile_type == "desert"
 			player.decrement_clicks_left
 		else
 			p "++++=====<<<<<<< WWWAAHHHHHH!!"
-			p "---NO CLICKS LEFT"
+			p "---NO CLICKS LEFT or someone won"
 		end
 
-		players = @board.sorted_players
+		players = @board.sorted_players(true)
 		respond_to do |format|
-			format.json { render json: players }
+			format.json { render json: players, root: "players" }
 		end
 	end
 

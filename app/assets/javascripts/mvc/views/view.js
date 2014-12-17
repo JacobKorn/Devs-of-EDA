@@ -8,7 +8,6 @@ View.prototype = {
 	renderBoard: function() {
 		two.update();
 	},
-	// explore event delegation, prevent bubbling
 	addTileClickEvents: function() {
 		var self = this
 		this.board.hexagons.forEach(function(hexagon) {

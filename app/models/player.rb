@@ -6,6 +6,21 @@ class Player < ActiveRecord::Base
     victory_points < 5 ? false : true
   end
 
+  def win?
+    if victory_points >= 2
+      set_as_winner
+      p "Player #{id} has won!!!"
+      true
+    else
+      false
+    end
+  end
+
+  def set_as_winner
+    self.is_winner = true
+    self.save
+  end
+
   def increment_resource(player, tile_type)
   	resource_type = Board::TILE_RESOURCE[tile_type]
   	player[resource_type] += 1
@@ -30,7 +45,7 @@ class Player < ActiveRecord::Base
   end
 
   def conduct_ee_session
-    if has_resources?
+    if has_resources? && !board.check_winner?
       decrement_resources
       increment_ee_session
       increment_victory_points
@@ -50,6 +65,7 @@ private
 
   def increment_victory_points
     self.victory_points += 1
+    win?
   end
 
   def increment_ee_session
