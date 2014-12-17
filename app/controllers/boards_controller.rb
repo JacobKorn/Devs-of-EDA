@@ -12,6 +12,10 @@ class BoardsController < ApplicationController
 		
 	end
 
+	def load_game
+		@boards = Board.all.reverse
+	end
+
 	def create
 		@board = Board.create
 		id = @board.id

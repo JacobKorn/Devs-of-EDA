@@ -5,13 +5,6 @@
   </div>
   <div class="row splash-button-area">
 		<%= link_to "Start Phase 1!", new_board_path, :class=>("splash-button button large") %>
-		<a class="splash-button button large" data-dropdown="autoCloseExample" aria-controls="autoCloseExample" aria-expanded="false">Load Game &raquo;</a>
-			<ul id="drop" class="[tiny small medium large content] f-dropdown" data-dropdown-content>
-				<% @boards.each do |board| %>
-					<li><a href="#">
-						<%= link_to board.id, board %>
-					</a></li>
-				<% end %>
-			</ul>
+		<%= link_to "Load Game", load_game_path, :class=>("splash-button button large") %>
   </div>
 </div>

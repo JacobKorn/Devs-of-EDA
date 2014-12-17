@@ -27,7 +27,7 @@ Tile.prototype = {
 		hexagonPoly.id = id
 		hexagonPoly.fill = "#FFF";
 		hexagonPoly.stroke = "#1c75bc";
-		hexagonPoly.opacity = 0.75;
+		hexagonPoly.opacity = 0.95;
 		hexagonPoly.linewidth = 30;
 		this.canvasHexagon = hexagonPoly
 	},
@@ -73,13 +73,13 @@ Tile.prototype = {
 	assignColor: function() {
 		switch (this.tileType) {
 			case "fish_and_chip_shop":
-				this.canvasHexagon.fill = "#1D652E";
+				this.canvasHexagon.fill = "#539CE6";
 				break;
 			case "coffee_shop":
-				this.canvasHexagon.fill = "#34C805"
+				this.canvasHexagon.fill = "#CD853F"
 				break;
 			case "liquor_shop":
-				this.canvasHexagon.fill = "#727576";
+				this.canvasHexagon.fill = "#339933";
 				break;
 			case "pizza_shop":
 				this.canvasHexagon.fill = "#F8D425";

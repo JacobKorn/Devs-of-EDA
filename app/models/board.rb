@@ -42,8 +42,11 @@ class Board	< ActiveRecord::Base
 	end
 
 	def create_players
+		@players = ["Alex", "Anthony", "Eugene", "Gabby", "Georgie", "Kat", "Rob", "Sarah", "Steve", "Tye"]
+
 		4.times do
-			Player.create({name: Faker::Name.first_name, board_id: id})
+			@player_name = @players.shuffle!.pop
+			Player.create({name: @player_name, board_id: id})
 		end
 	end
 
@@ -59,7 +62,7 @@ class Board	< ActiveRecord::Base
 		self.current_player_id = starting_player.id
 		self.save
 	end
-	
+
 	def set_starting_roll
 		starting_player.roll_dice
 	end

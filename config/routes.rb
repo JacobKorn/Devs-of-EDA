@@ -5,6 +5,8 @@ root 'boards#index'
   resources :boards, only: [:index, :new, :create, :show]
   resources :tiles, only: [:index]
 
+  get 'load_game' => "boards#load_game", as: :load_game
+
   post 'tiles/click' => 'tiles#tile_clicked'
 
   put 'turns/:board_id/end_turn' => 'turns#end_turn'

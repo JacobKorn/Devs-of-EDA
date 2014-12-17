@@ -1,0 +1,33 @@
+
+	<div class="row splash load-game-screen" id="splash">
+	  <div class="small-6 large-centered columns" id="splash-title">
+	  	<h1>Devs Of EDA!<h1>
+	  </div>
+	  <div class="row splash-button-area">
+	  	<div class="small-6 small-centered columns">
+	  	<table class="">
+	  		<thead>
+	  			<th>Game</th>
+	  			<th>Player 1</th>
+	  			<th>Player 2</th>
+	  			<th>Player 3</th>
+	  			<th>Player 4</th>
+	  			<th>Load</th>
+	  		</thead>
+	  		<% @boards.each do |board| %>
+	  		<tr>
+	  		<a href="/boards/1">
+		  			<td><%= board.id %></td>
+		  			<td><%= board.sorted_players[0].name %></td>
+		  			<td><%= board.sorted_players[1].name %></td>
+		  			<td><%= board.sorted_players[2].name %></td>
+		  			<td><%= board.sorted_players[3].name %></td>
+		  			<td class="collapse"><%= link_to "LOAD", board %></td>
+		  	</a>
+		  		</tr>
+	  		<% end %>
+	  	</table>
+	  </div>
+			
+	  </div>
+	</div>
