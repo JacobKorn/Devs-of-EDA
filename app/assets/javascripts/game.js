@@ -2,7 +2,7 @@
 $(function() {
 	//consider finding by board ID instead
 	elem = document.getElementById('draw-shapes').children[0];
-	params = { width: 950, height: 900 };
+	params = { width: 850, height: 800 };
 	two = new Two(params).appendTo(elem);
 
 	var game = new BoardController();

@@ -6,8 +6,8 @@ var Tile = function(boardId, chitNumber, tileType, tileId, serverX, serverY) {
 	this.serverX = serverX;
 	this.serverY = serverY;
 	this.canvasHexagon;
-	this.canvasCentreX = 500;
-	this.canvasCentreY = 450;
+	this.canvasCentreX = 430;
+	this.canvasCentreY = 400;
 	this.hexagonCentreX;
 	this.hexagonCentreY;
 	this.hexagonCoords;
