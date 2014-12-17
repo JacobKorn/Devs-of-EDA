@@ -2,12 +2,12 @@ var Tile = function(boardId, chitNumber, tileType, tileId, serverX, serverY) {
 	this.boardId = boardId;
 	this.tileId = tileId;
 	this.chitNumber = chitNumber;
-	this.tileType = tileType; 
+	this.tileType = tileType;
 	this.serverX = serverX;
 	this.serverY = serverY;
 	this.canvasHexagon;
-	this.canvasCentreX = 500;
-	this.canvasCentreY = 500;
+	this.canvasCentreX = 430;
+	this.canvasCentreY = 400;
 	this.hexagonCentreX;
 	this.hexagonCentreY;
 	this.hexagonCoords;
@@ -81,7 +81,7 @@ Tile.prototype = {
 			case "liquor_shop":
 				this.canvasHexagon.fill = "#727576";
 				break;
-			case "pizza_shop": 
+			case "pizza_shop":
 				this.canvasHexagon.fill = "#F8D425";
 				break;
 			case "bed":

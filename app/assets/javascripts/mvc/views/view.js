@@ -28,7 +28,7 @@ View.prototype = {
 		var player2 = [ "#player-2", board.player2 ];
 		var player3 = [ "#player-3", board.player3 ];
 		var player4 = [ "#player-4", board.player4 ];
-		console.log(player1)
+		console.log(board.player1)
 
 		this.updatePlayerResources(player1);
 		this.updatePlayerResources(player2);
@@ -36,6 +36,7 @@ View.prototype = {
 		this.updatePlayerResources(player4);
 	},
 	updatePlayerResources: function(player) {
+		console.log(player)
 		var $clicksLeftContents = $(player[0] + " #clicks_left").contents();
 		var $nameContents = $(player[0] + " #player_name").contents();
 		var $fishContents = $(player[0] + " #fish_and_chips").contents();
