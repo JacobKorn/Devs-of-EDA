@@ -14,7 +14,8 @@ class BoardsController < ApplicationController
 
 	def create
 		@board = Board.create
-
+		id = @board.id
+		@board = Board.find(id)
 		respond_to do |format|
 			format.json { render json: @board }
 		end

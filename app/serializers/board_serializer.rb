@@ -1,6 +1,9 @@
 class BoardSerializer < ActiveModel::Serializer
   attributes :id, :tiles, :players
   has_many :tiles
-  has_many :players
+
+  def players
+  	object.sorted_players(true)
+  end
 
   end

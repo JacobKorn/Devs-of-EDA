@@ -5,7 +5,6 @@ var BoardController = function() {
 };
 
 BoardController.prototype = {
-	//pull out similar calls into new function
 	newGame: function() {
 		this.board.getServerTiles()
 			.done(this.board.saveTiles.bind(this.board))
@@ -23,6 +22,7 @@ BoardController.prototype = {
 			.done(this.updateResources.bind(this))
 	},
 	initializeClickEvents: function() {
+
 		var eeSelector = '#ee_session';
 		var eeCallback = this.conductEeSession.bind(this);
 		this.view.addClickEvent( eeSelector, eeCallback );
@@ -30,24 +30,32 @@ BoardController.prototype = {
 		var endTurnSelector = '#end-turn';
 		var endTurnCallback = this.endTurn.bind(this);
 		this.view.addClickEvent( endTurnSelector, endTurnCallback );
+
+	},
+
+
+	triggerResourceAction: function(action, event) {
+		this.board.action(event)
+			.done(this.board.updatePlayers.bind(this.board))
+			.done(this.updateResources.bind(this));
 	},
 
 	logClick: function(event) {
-		var controller = this
 		this.board.logClick(event)
-			.done(this.board.updateResourcesLogClick.bind(this.board))
+			.done(this.board.updatePlayers.bind(this.board))
 			.done(this.updateResources.bind(this));
 	},
 	endTurn: function(event) {
-		this.board.endTurn()
-			.done(this.board.updateResourcesTurns.bind(this.board))
-			.done(this.view.updateResources(this.board));
+		this.board.endTurn(event)
+			.done(this.board.updatePlayers.bind(this.board))
+			.done(this.updateResources.bind(this));
 	},
 	conductEeSession: function(event) {
 		this.board.conductEeSession(event)
-			.done(this.board.updateResourcesEeSession.bind(this.board))
-			.done(this.updateResources.bind(this))
+			.done(this.board.updatePlayers.bind(this.board))
+			.done(this.updateResources.bind(this));
 	},
+
 	updateResources: function() {
 		this.view.updateResources(this.board);
 	},

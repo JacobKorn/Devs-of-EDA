@@ -13,6 +13,7 @@ Board.prototype = {
 
 
 	saveTiles: function(data) {
+		console.log("INITIAL BOARD---", data)
 		this.serverJson = data;
 		this.serverTiles = data.board.tiles;
 		this.boardId = data.board.id;
@@ -58,23 +59,13 @@ Board.prototype = {
 			data: sending,
 		})
 	},
-	updateResourcesLogClick: function(data) {
-		this.player1 = data.tiles[0]
-		this.player2 = data.tiles[1]
-		this.player3 = data.tiles[2]
-		this.player4 = data.tiles[3]
-	},
-		updateResourcesEeSession: function(data) {
+
+	updatePlayers: function(data) {
+		console.log("PLAYERS LOG---->", data)
 		this.player1 = data.players[0]
 		this.player2 = data.players[1]
 		this.player3 = data.players[2]
 		this.player4 = data.players[3]
-	},
-	updateResourcesTurns: function(data) {
-		this.player1 = data.turns[0]
-		this.player2 = data.turns[1]
-		this.player3 = data.turns[2]
-		this.player4 = data.turns[3]
 	},
 
 	

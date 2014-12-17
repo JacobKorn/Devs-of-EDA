@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
 		
 		
 		if player.conduct_ee_session
-			players = board.sorted_players
+			players = board.sorted_players(true)
 			render json: players
 		else 
 			render nothing: true, status: :bad_request
