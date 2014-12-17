@@ -4,7 +4,7 @@ class Player < ActiveRecord::Base
   validates :name, :board_id, presence: true
 
   def win?
-    if victory_points >= 5
+    if victory_points >= 3
       set_as_winner
       p "Player #{id} has won!!!"
       true
