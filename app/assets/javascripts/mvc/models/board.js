@@ -14,7 +14,6 @@ Board.prototype = {
 
 	saveTiles: function(data) {
 		this.serverJson = data;
-		console.log("DATA--->", data)
 		this.serverTiles = data.board.tiles;
 		this.boardId = data.board.id;
 	},
